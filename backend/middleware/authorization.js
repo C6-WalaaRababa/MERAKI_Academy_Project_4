@@ -1,3 +1,4 @@
+
 const authorization = (string) => {
     return (req, res, next) => {
       if (!req.token.role.permissions.includes(string)) {

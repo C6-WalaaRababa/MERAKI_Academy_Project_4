@@ -3,6 +3,7 @@ const cors = require("cors");
 const roleRouter = require("./Routes/role");
 const userRouter = require("./Routes/user");
 const categoryRouter = require("./Routes/category");
+const employeeRouter = require("./Routes/employee");
 require("dotenv").config();
 require("./models/db");
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/roles",roleRouter)
 app.use("/users",userRouter)
 app.use("/section",categoryRouter)
+app.use("/employee",employeeRouter)
 // Routes Middleware
 
 

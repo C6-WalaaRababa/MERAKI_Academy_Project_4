@@ -1,3 +1,4 @@
+const jwt=require("jsonwebtoken")
 const authentication = (req, res, next) => {
   try{
     if (!req.headers.authorization) {
