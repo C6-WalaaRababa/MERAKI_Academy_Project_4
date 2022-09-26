@@ -4,6 +4,7 @@ const roleRouter = require("./Routes/role");
 const userRouter = require("./Routes/user");
 const categoryRouter = require("./Routes/category");
 const employeeRouter = require("./Routes/employee");
+const serviceRouter = require("./Routes/service");
 require("dotenv").config();
 require("./models/db");
 
@@ -18,6 +19,7 @@ app.use("/roles",roleRouter)
 app.use("/users",userRouter)
 app.use("/section",categoryRouter)
 app.use("/employee",employeeRouter)
+app.use("/service",serviceRouter)
 // Routes Middleware
 
 
