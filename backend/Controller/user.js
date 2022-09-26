@@ -77,7 +77,7 @@ const login = (req, res) => {
         message: "Server Error",
         err: error.message,
       });
-      console.log(error);
+
     });
 };
 
