@@ -36,18 +36,20 @@ const addService = (req, res) => {
 };
 const getserviceByWorker=(req,res)=>
 {
-serviceModel.find({worker:req.token.UserID})
+serviceModel.find({worker:req.token.employeeID})
 
 .then((result)=>
 {
+   
     if(!result.length)// mean there is no order for employee
-    return res.status(400).json(" there is no order for you,at this time")
-
+  {  return res.status(400).json(" there is no order for you,at this time")}
+else{
 res.status(200).json({
     success: true,
      message: "My Orders",
     Orders: result,
 })
+}
 })
 .catch((error)=>
 {

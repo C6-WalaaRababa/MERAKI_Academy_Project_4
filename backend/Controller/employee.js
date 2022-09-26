@@ -46,8 +46,8 @@ const loginEmployee = (req, res) => {
             });
           }
           const payload = {
-          employee: result._id,
-            Country: result.country,
+          employeeID: result._id,
+            secction: result.section,
             role: result.role,
           };
           const option = {
