@@ -73,10 +73,7 @@ const loginEmployee = (req, res) => {
   
       });
     }
-// const updateService=(req,res)=>
-// {
-// const {statuseofService,Date}=req.body;
-// serviceModel.findByIdAndUpdate({"_id":req.params.id},{statuseofService,Date},{new:true})
+
 
 
 
