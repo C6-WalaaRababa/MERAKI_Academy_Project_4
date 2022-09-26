@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const roleRouter = require("./Routes/role");
+const userRouter = require("./Routes/user");
 require("dotenv").config();
 require("./models/db");
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Import Routers
 app.use("/roles",roleRouter)
+app.use("/users",userRouter)
 // Routes Middleware
 
 
