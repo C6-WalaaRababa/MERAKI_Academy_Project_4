@@ -4,7 +4,7 @@ const serviceSchema=new mongoose.Schema({
     description:{type:String,required:true},
     customer:{type:mongoose.Schema.Types.ObjectId,ref:"Users"},
     section:{type:mongoose.Schema.Types.ObjectId,ref:"Category"},
-    employee:{type:mongoose.Schema.Types.ObjectId,ref:"employee"},
+    worker:{type:mongoose.Schema.Types.ObjectId,ref:"employee"},
     statuseofService:{type:String},
     Date:{type:Date},
     iscopmleted:{type:Boolean}
