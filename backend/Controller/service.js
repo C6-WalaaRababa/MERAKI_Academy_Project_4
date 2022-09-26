@@ -58,6 +58,10 @@ const getserviceByWorker = (req, res) => {
         })
 }
 const updateServiceByWorker = (req, res) => {
+    const filter = req.body;
+    Object.keys(filter).forEach((key) => {
+      filter[key] == "" && delete filter[key];
+    });
     const { statuseofService, Date } = req.body
     const pathService = req.params.id
     serviceModel.findByIdAndUpdate({ _id: pathService }, { statuseofService, Date }, { new: true })
@@ -75,6 +79,7 @@ const updateServiceByWorker = (req, res) => {
 const getservicesbyUser = (req, res) => 
 {
     serviceModel.find({ customer: req.token.UserID })
+
         .then((result) => 
         {
             if (!result.length)// mean there is no order for user 
