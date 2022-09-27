@@ -21,5 +21,25 @@ const addcategory = (req, res) => {
         err: error.message,
       });
     });
-};
-module.exports={addcategory}
+  }
+    const getNameCeteogry=(req,res)=>
+    {
+      categoryModel.find({})
+      .then((result) => {
+        res.status(200)
+          .json({
+            success: true,
+            message: "all category ",
+            section: result,
+          });
+      })
+      .catch((error) => {
+        res.status(500).json({
+          success: false,
+          message: "Server Error",
+          err: error.message,
+        });
+      });
+    }
+
+module.exports={addcategory,getNameCeteogry}

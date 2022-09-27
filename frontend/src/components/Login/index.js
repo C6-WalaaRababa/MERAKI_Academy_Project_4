@@ -31,7 +31,7 @@ setisloggedin(true)
 useEffect(()=>
 {
 if(isloggedin)
-navigate("/dashboard")
+navigate("/home")
 
 
 })
