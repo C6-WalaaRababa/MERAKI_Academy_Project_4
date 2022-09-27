@@ -4,5 +4,5 @@ const authentication = require("../middleware/authentication ")
 const authorization = require("../middleware/authorization")
 const categoryRouter=express.Router()
 categoryRouter.post("/",authentication,authorization("ADD_CATEGORY"),addcategory)
-categoryRouter.get("/",authentication,getNameCeteogry)
+categoryRouter.get("/",getNameCeteogry)
 module.exports=categoryRouter
