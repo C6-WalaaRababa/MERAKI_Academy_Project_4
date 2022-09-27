@@ -73,8 +73,61 @@ const loginEmployee = (req, res) => {
   
       });
     }
+    const getallEmployee=(req,res)=>
+    {
+        employeeModel.find({})
+  .populate("section","-_id -__v")
+  .exec()
+        .then((result)=>
+        {
+        
+                res.status(200).json({
+                    success: true,
+                    message: `Employee at app`,
+                    employees: result
+                })
+            
+        })
+
+        .catch((error)=>
+        {
+                res.status(400).json({
+                    success: false,
+                    error: error.message
+                })
+        })
+      }
+
+    const getEmployeeforSection=(req,res)=>
+    {
+        const nameofsection=req.query.namesection
+        employeeModel.find({section:nameofsection})
+        .populate("section","-_id -__v")
+        .exec()
+        .then((result)=>
+        {
+        if (!result.length)// mean there is no employee for user 
+            { return res.status(400).json("no employee at section")}
+            else
+             {
+                res.status(200).json({
+                    success: true,
+                    message: `Employee at this section :${nameofsection}`,
+                    employees: result
+                })
+            }
+        })
+
+        .catch((error)=>
+        {
+                res.status(400).json({
+                    success: false,
+                    error: error.message
+                })
+        })
+    }
 
 
 
 
-module.exports={addEmployee,loginEmployee}
+module.exports={addEmployee,loginEmployee,getallEmployee,getEmployeeforSection}
