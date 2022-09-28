@@ -127,6 +127,17 @@ const loginEmployee = (req, res) => {
         })
     }
 
+//     const findEmployee=(req,res)=>
+//     {
+// const regx=new RegExp('d(b+)d', 'g')
+
+
+
+
+
+
+
+//     }
 
 
 
