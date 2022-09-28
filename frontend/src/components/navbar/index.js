@@ -13,9 +13,11 @@ const Navigation = () => {
                     <div> <Link to="/register"> register </Link> </div>
                    </div> :   <div>
                    <div> <Link to="/home"> Home </Link> </div>
-                   <div> <Link to="/">section </Link> </div>
-                   <div> <Link to="/">Our Team </Link> </div>
+                   <div> <Link to="/">Category </Link> </div>
                     <div> <Link to="/">  MY dashboard </Link> </div>
+                    <div> <Link to="/">  log out </Link> </div>
+                    <div> <Link to="/addservice">AddService</Link></div>
+
             
                         </div>}
             </div>

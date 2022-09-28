@@ -79,6 +79,8 @@ const updateServiceByWorker = (req, res) => {
 const getservicesbyUser = (req, res) => 
 {
     serviceModel.find({ customer: req.token.UserID })
+    .populate("section", "-_id -__v")
+    .populate("worker","firstName lastName -_id")
 
         .then((result) => 
         {

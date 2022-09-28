@@ -1,46 +1,55 @@
-import React, { useState,useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { MyContext } from "../../App";
 import axios from "axios";
 const Login = () => {
-  const [email,setemail]=useState("")
- const [password,setpassword]=useState("")
- const [BackeMessage, SetBackMessage] = useState("");
- const [status,setstatus]=useState(false)
- const {isloggedin ,setisloggedin, settoken } = useContext(MyContext)
- const navigate=useNavigate();
-const login=()=>
-{
-const userInfo={email,password}
-axios.post(`http://localhost:5000/users/login`,userInfo)
-.then((result)=>
-{
-  
-SetBackMessage(result.data.message)
-localStorage.setItem("token", result.data.token)
-settoken(result.data.token);
-setisloggedin(true)
-})
-.catch((error)=>
-{
-  SetBackMessage(error.response.data.message)
-  setstatus(false)
-})
-}
-useEffect(()=>
-{
-if(isloggedin)
-navigate("/home")
+  const [email, setemail] = useState("")
+  const [password, setpassword] = useState("")
+  const [BackeMessage, SetBackMessage] = useState("");
+  const [status, setstatus] = useState(false)
+  const { isloggedin, setisloggedin, settoken, token } = useContext(MyContext)
+  const navigate = useNavigate();
+  const signin = async () => {
+    const userInfo = { email, password }
+    try {
+      const result = await axios.post(`http://localhost:5000/users/login`, userInfo)
+      console.log(result)
+      if (result.data.success
+        ) {
+    
+        localStorage.setItem("token", result.data.token)
+        settoken(result.data.token);
+        setisloggedin(true)
+        SetBackMessage(result.data.message);
+      }
+      else {
+        throw Error
+      }
+    }
+    catch (error) {
+
+      if (error.response && error.response.data) {
+        return SetBackMessage(error.response.data.message);
+      }
+      // SetBackMessage("plz try again")
 
 
-})
+    }
+  }
+  useEffect(() => {
+
+    if (isloggedin) {
+      navigate("/home");
+    }
+  }, [isloggedin]);
+
 
   return (
-<>
-<div> login form  as user </div>
-<div>
-<input
+    <>
+      <div> login form  as user </div>
+      <div>
+        <input
           type="email"
           placeholder="Write your email"
           onChange={(e) => {
@@ -54,12 +63,12 @@ navigate("/home")
             setpassword(e.target.value);
           }}
         ></input>
-        <button onClick={login}> log in </button>
-        {status?<div>{BackeMessage}</div>:
-       <div>{BackeMessage}</div>}
-   
-</div>
-</>
+        <button onClick={signin}> log in </button>
+        {status ? <div>{BackeMessage}</div> :
+          <div>{BackeMessage}</div>}
+
+      </div>
+    </>
   )
 };
 export default Login;
