@@ -4,9 +4,8 @@ import axios from "axios"
 import { useState } from 'react'
 import { MyContext } from '../../App'
 const AllOrder = () => {
-    const [order, setorder] = useState([])
 const [Backmessage, setBackmessage] = useState("")
-const {token}=useContext(MyContext)
+const {token,order,setorder} =useContext(MyContext)
 
     const myorder=async()=>
     {
@@ -17,12 +16,12 @@ const {token}=useContext(MyContext)
 // console.log(result.data)
         if (result.data.success) {
           setorder([...order,...result.data.Orders])
-            setBackmessage("")
+         
         }
         else { throw Error }
     }
     catch (error) {
-        if (!result.data.success) {
+         {
             return setBackmessage(error.response.data.message)
         }
 
@@ -30,7 +29,8 @@ const {token}=useContext(MyContext)
 }
 
 useEffect(() => {
-    if(order.length)
+
+
     { myorder()}
   
 }, [])
