@@ -7,6 +7,7 @@ import Navigation from "./components/navbar";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import AddService from "./components/Add Service";
+import Myservice from "./components/Dashboard/Myservice";
 export const MyContext = createContext();
 
 function App() {
@@ -37,6 +38,7 @@ const navigate=useNavigate()
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/myservice" element={<Myservice/>}/>
             <Route path="/addservice" element={<AddService/>}/>
           </Routes>
 

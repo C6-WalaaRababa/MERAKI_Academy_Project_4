@@ -113,12 +113,14 @@ const AddService = () => {
 
      { <button onClick={ handel}> submit </button>} */}
           {
-            Employee && selected && Employee.map((worker, i) => {
+            Employee && Employee.map((worker, i) => {
               return (
                 <>
                   <div>
                     <h3>{worker.firstName}</h3>
-                    <div> {<h4> {worker.lastName}</h4> && <button onClick={() => setidemployee(worker._id)}>choose</button>} </div>
+                    <img src={worker.lastName}></img>
+                   {/* <div> <img src={worker.lastName}> </img></div>  */}
+                    <div> {<h4> {worker.firstName}</h4> && <button onClick={() => setidemployee(worker._id)}>choose</button>} </div>
                   </div></>)
             })
           }
