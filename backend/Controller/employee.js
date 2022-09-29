@@ -127,9 +127,29 @@ const loginEmployee = (req, res) => {
         })
     }
 
-//     const findEmployee=(req,res)=>
-//     {
-// const regx=new RegExp('d(b+)d', 'g')
+    const findEmployee=(req,res)=>
+    {
+      const search=req.query.search
+const regex=new RegExp(search,'gi', /*flags*/)
+console.log(regex)
+employeeModel.find({firstName:{$regex:regex}}
+
+)
+.then ((result)=>
+{
+  res.status(200).json({
+    success: true,
+    message: `Employee at maintanence app`,
+    employees: result
+})
+})
+.catch((error)=>
+{
+  res.status(400).json({
+    success: false,
+    error: error.message
+})
+})
 
 
 
@@ -137,8 +157,8 @@ const loginEmployee = (req, res) => {
 
 
 
-//     }
+    }
 
 
 
-module.exports={addEmployee,loginEmployee,getallEmployee,getEmployeeforSection}
+module.exports={addEmployee,loginEmployee,getallEmployee,getEmployeeforSection,findEmployee}

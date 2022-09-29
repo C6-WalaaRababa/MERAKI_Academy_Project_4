@@ -1,5 +1,5 @@
 const express=require("express")
-const { addEmployee, loginEmployee, getEmployeeforSection, getallEmployee } = require("../Controller/employee")
+const { addEmployee, loginEmployee, getEmployeeforSection, getallEmployee, findEmployee } = require("../Controller/employee")
 const authentication = require("../middleware/authentication ")
 const authorization = require("../middleware/authorization")
 const employeeRouter=express.Router()
@@ -7,4 +7,5 @@ employeeRouter.post("/",authentication,authorization("ADD_EMPOLYEE"),addEmployee
 employeeRouter.post("/login",loginEmployee)
 employeeRouter.get("/",authentication,getallEmployee)
 employeeRouter.get("/search_1",authentication,getEmployeeforSection)
+employeeRouter.get("/search_2",authentication,findEmployee)
 module.exports=employeeRouter
