@@ -6,6 +6,7 @@ import { MyContext } from '../../App'
 const Myservice = () => {
     const [myorders, setmyorders] = useState([])
     const { token } = useContext(MyContext)
+    const [error, seterror] = useState(false)
     const getmyorder = async () => {
         try {
             const response = await (axios.get(`http://localhost:5000/service/myservice`, {
@@ -13,14 +14,14 @@ const Myservice = () => {
             }))
             if (response.data.success) {
                 setmyorders([myorders,...response.data.Orders])
-                // setBackmessage("")
             }
             else { throw Error }
         }
         catch (error) {
 
-            if (!response.data.success) {
-                console.log(error.response.data.message)
+            // if (!response.data.success)
+             {
+                console.log(error.response.data)
                 // return setBackmessage(error.response.data.message)
             }
             // setBackmessage(`there is an error in loading my Order`)
@@ -30,7 +31,10 @@ const Myservice = () => {
    
     useEffect(() => {
     getmyorder()
-
+if(error)
+{
+    getmyorder()
+}
     }, [])
     
 
@@ -41,11 +45,10 @@ const Myservice = () => {
     {myorders && myorders.map((element,i)=>
     {
         return(
-            <div key={myordes.i}>
+            <div>
                 <h1>{element.title}</h1>
                 <h2>{element.description}</h2>
-                <h1>{element.section.title}</h1>
-
+                <p>{element.statuseofService}</p>
             </div>
         )
     })

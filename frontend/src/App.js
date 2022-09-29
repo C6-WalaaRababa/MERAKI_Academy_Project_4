@@ -8,12 +8,15 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import AddService from "./components/Add Service";
 import Myservice from "./components/Dashboard/Myservice";
+import LoginEmpolyee from "./components/Employee";
+import DashboardeEmployee from "./components/Employee/DashboardeEmpo";
 export const MyContext = createContext();
 
 function App() {
 const navigate=useNavigate()
   const [isloggedin, setisloggedin] = useState(false);
   const [token, settoken] = useState("");
+ const [logemployee, setlogemployee] = useState(false)
   const state={isloggedin,setisloggedin,token,settoken}
   useEffect(() => {
     settoken(localStorage.getItem("token"));
@@ -21,9 +24,10 @@ const navigate=useNavigate()
       settoken(token)
       setisloggedin(true)
     }
-    if (isloggedin) {
+    if (isloggedin && !logemployee) {
      navigate("/home");
     }
+    
   }, [token, isloggedin]);
 
   return (
@@ -35,6 +39,8 @@ const navigate=useNavigate()
           <Navigation />
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/loginemployee" element={<LoginEmpolyee/>}/>
+            <Route path="/dashemployee" element={<DashboardeEmployee/>}/>
             <Route path="/register" element={<Register />} />
             <Route path="/home" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />}/>

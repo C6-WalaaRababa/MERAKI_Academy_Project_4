@@ -14,7 +14,6 @@ const Login = () => {
     const userInfo = { email, password }
     try {
       const result = await axios.post(`http://localhost:5000/users/login`, userInfo)
-      console.log(result)
       if (result.data.success
         ) {
     
@@ -32,8 +31,6 @@ const Login = () => {
       if (error.response && error.response.data) {
         return SetBackMessage(error.response.data.message);
       }
-      // SetBackMessage("plz try again")
-
 
     }
   }

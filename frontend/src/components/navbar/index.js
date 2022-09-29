@@ -3,14 +3,15 @@ import { useContext } from "react";
 import { MyContext } from "../../App";
 
 const Navigation = () => {
-    const { isloggedin, token } = useContext(MyContext)
+    const { isloggedin, token,logemployee } = useContext(MyContext)
     return (
         <>
             <div>
                
-                {!isloggedin && !token ? <div>
+                {!isloggedin && !token  ? <div>
                     <div> <Link to="/login"> login </Link> </div>
                     <div> <Link to="/register"> register </Link> </div>
+                    <div><Link to="/loginemployee" > Login Empolyee</Link></div>
                    </div> :   <div>
                    <div> <Link to="/home"> Home </Link> </div>
                    <div> <Link to="/">Category </Link> </div>
