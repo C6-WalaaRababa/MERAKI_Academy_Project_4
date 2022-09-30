@@ -3,9 +3,9 @@ const bcrypt=require("bcrypt")
 const jwt=require("jsonwebtoken")
 const addEmployee=(req,res)=>
 {
-    const { firstName, lastName, age, city, email, password, role ,section} = req.body;
+    const { firstName, lastName,imgpath,rate, age, city, email, password, role ,section} = req.body;
     const newEmployee=new employeeModel({
-       firstName, lastName, age, city, email, password, role ,section
+       firstName, lastName,imgpath,rate, age, city, email, password, role ,section
     })
 
     newEmployee.save()
