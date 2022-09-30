@@ -57,6 +57,29 @@ const getserviceByWorker = (req, res) => {
 
         })
 }
+getPendingServiceByWorker = (req, res) => {
+
+//     serviceModel.find({ worker: req.token.employeeID statuseofService:"pending"})
+//         .then((result) => {
+
+//             if (!result.length)// mean there is no order for employee
+//             { return res.status(400).json(" there is no order for you,at this time") }
+//             else {
+//                 res.status(200).json({
+//                     success: true,
+//                     message: "My State Orders",
+//                     Orders: result,
+//                 })
+//             }
+//         })
+//         .catch((error) => {
+//             res.status(400).json({
+//                 success: false,
+//                 error: error.message
+//             })
+
+        // })
+ }
 const updateServiceByWorker = (req, res) => {
     const filter = req.body;
     Object.keys(filter).forEach((key) => {
@@ -103,7 +126,25 @@ const getservicesbyUser = (req, res) =>
                 })
         })
     }
+    const deletservicesbyUser = (req, res) => 
+    { service=req.params.id
+        serviceModel.findByIdAndDelete({_id:service})
+        .then(()=>
+        {
+            res.status(200).json({
+                success: true,
+                message: "service is detleted",
+               
+            })
+        })
+            .catch((error)=>
+            {
+                    res.status(400).json({
+                        success: false,
+                        error: error.message
+                    })
+            })
+        }
 
 
-
-module.exports = { addService, getserviceByWorker, updateServiceByWorker ,getservicesbyUser}
+module.exports = { addService, getserviceByWorker, updateServiceByWorker ,getservicesbyUser,deletservicesbyUser}
