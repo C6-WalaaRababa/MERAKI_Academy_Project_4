@@ -12,8 +12,9 @@ import LoginEmpolyee from "./components/Employee";
 import DashboardeEmployee from "./components/Employee/DashboardeEmpo";
 import AllOrder from "./components/Employee/AllOrder";
 import PendingOrder from "./components/Employee/PendingOrder";
+import MainPage from "./components/Mainpage";
 export const MyContext = createContext();
-
+// import pic from "./images/mypic.png";
 function App() {
   const navigate = useNavigate()
   const [isloggedin, setisloggedin] = useState(false);
@@ -39,10 +40,10 @@ function App() {
     <>
       <MyContext.Provider value={state}>
 
-        <div className="App">
-          <h1> hello</h1>
+        <div className="App">               
           <Navigation />
           <Routes>
+            <Route path="/" element={<MainPage/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
             <Route path="/dashemployee" element={<DashboardeEmployee />} />

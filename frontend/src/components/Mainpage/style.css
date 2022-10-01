@@ -1,0 +1,26 @@
+.center{    
+height: 600px;
+    display: flex;
+justify-content: space-between
+
+
+}
+.center-form{
+border: 3px solid #001f66;
+width:55%;
+}
+
+.main{
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 123px;
+    font-size: 23px;
+}
+ h1 , h2{
+    text-align: center;
+}
+.link{
+    display: flex;
+    justify-content: space-around;
+   
+}
