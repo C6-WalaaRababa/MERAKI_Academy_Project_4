@@ -5,12 +5,13 @@ body{
 
 }
 
-.App {
-  /* background: linear-gradient(rgba(2, 40, 67, 0.8), rgba(82, 4, 34, 0.671)),
-  url("https://images.pexels.com/photos/8487370/pexels-photo-8487370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+.App
+ {
+ /* background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(7, 5, 6, 0.671)),
+  url("https://images.pexels.com/photos/8487370/pexels-photo-8487370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); 
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center center;
-height: 600px; */
+height: 600px;  */
 
 }
