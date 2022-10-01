@@ -88,7 +88,6 @@ const loginEmployee = (req, res) => {
                 })
             
         })
-
         .catch((error)=>
         {
                 res.status(400).json({
@@ -150,15 +149,31 @@ employeeModel.find({firstName:{$regex:regex}}
     error: error.message
 })
 })
-
-
-
-
-
-
-
     }
+     const getGenralInfoEmpolyee=(req,res)=>
+    {
+        employeeModel.find({}, "firstName imgpath rate")// return spacfic data for user 
+  .populate("section","-_id -__v")
+  .exec()
+        .then((result)=>
+        {
+        
+                res.status(200).json({
+                    success: true,
+                    message: `Employee at app`,
+                    employees: result
+                })
+            
+        })
+        .catch((error)=>
+        {
+                res.status(400).json({
+                    success: false,
+                    error: error.message
+                })
+        })
+      }
 
 
 
-module.exports={addEmployee,loginEmployee,getallEmployee,getEmployeeforSection,findEmployee}
+module.exports={addEmployee,loginEmployee,getallEmployee,getEmployeeforSection,findEmployee,getGenralInfoEmpolyee}
