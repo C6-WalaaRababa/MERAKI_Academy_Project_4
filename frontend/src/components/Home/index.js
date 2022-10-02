@@ -4,6 +4,8 @@ import { MyContext } from "../../App"
 import Team from "./Team"
 import plumber from "./plumber.jpg"
 import "./style.css"
+//  import {BsWrench} from "react-icons/ai";
+
 const Home = () => {
     const [department, setdepatment] = useState([])
     const [Backmessage, setBackmessage] = useState("")
@@ -38,6 +40,7 @@ const Home = () => {
            
                 <h1> Our Services</h1>
                 <div className="center-center">
+                    {/* {BsWrench} {BsHammer} {AiFillDashboard} {FaPaintRoller} */}
                     {
                        department && department.map((element, i) => {
                             return (

@@ -13,7 +13,7 @@ const Mainlogin = () => {
                     <h2> Home Maintanence Service </h2>
                     <div className='link'>
                         <div> <Link to="/login"> Login </Link> </div>
-                        <div><Link to="/loginemployee" > Login Empolyee</Link></div>
+                        <div> <Link to="/loginemployee" > Login Empolyee</Link></div>
                     </div>
                     <div> if already don't have an account ,<Link to="/register"> Sign up </Link>  here </div>
                 </div>

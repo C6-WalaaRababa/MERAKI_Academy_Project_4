@@ -15,8 +15,8 @@ const LoginEmpolyee = () => {
             if (result.data.success) {
                 setlogemployee (true)
                 localStorage.setItem("token", result.data.token)
-                localStorage.setItem("state", !result.data.success)
-                setstatelogin(!result.data.success)
+                // localStorage.setItem("state", !result.data.success)
+                // setstatelogin(!result.data.success)
                 settoken(result.data.token)
             }
             else {

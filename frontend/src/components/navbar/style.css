@@ -39,7 +39,7 @@ height: 100px;
 justify-content: center;
 align-items: center;
 }
-.linkhome div a {
+.linkhome  a {
   color: #001f66;
 font-size:30px;
 font-family: fantasy;

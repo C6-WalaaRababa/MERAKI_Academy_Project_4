@@ -23,30 +23,29 @@ function App() {
   const [token, settoken] = useState("");
   const [logemployee, setlogemployee] = useState(false)
   const [order, setorder] = useState([])
-  const [statelogin, setstatelogin] = useState()// to  indentify if user login or employee
+  const [statelogin, setstatelogin] = useState("")// to  indentify if user login or employee
   const state = { isloggedin, setisloggedin, token, settoken, setlogemployee, logemployee, order, setorder }
+  const savetoken=(token,statelogin)=>
+  {
+    settoken(token);
+    if(statelogin)
+      {setisloggedin(true)}
+
+      else{setlogemployee(true)}
+
+  }
   useEffect(() => {
     settoken(localStorage.getItem("token"));
     setstatelogin(localStorage.getItem("state"))
-    if (token) {
-      settoken(token)
-      if (statelogin) {
-        setisloggedin(true)
-      }
-
-      if (!statelogin) {
-        setlogemployee(true)
-      }
-
+    if(token)
+    { 
+     savetoken(token,statelogin)
     }
-    if (isloggedin) {
-      navigate("/home");
-    }
-
-    if (logemployee)
-      navigate("/dashemployee")
-
-  }, [token, isloggedin, logemployee]);
+    if(isloggedin)
+    {navigate("/home")}
+    if(logemployee)
+    {navigate("/dashemployee")}
+  },[token,isloggedin,logemployee])
 
   return (
     <>
@@ -61,11 +60,11 @@ function App() {
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <>
-            {isloggedin?
-            <Route path="/myservice" element={<Myservice />} />:""}
+           
+      
+            <Route path="/myservice" element={<Myservice />} />
 
-            </>
+           
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/myservice" element={<Myservice />} />

@@ -4,7 +4,7 @@ import { MyContext } from "../../App";
 import "./style.css";
 import logo from './logo1.png'
 const Navigation = () => {
-  const { isloggedin,token ,logemployee, setisloggedin, setlogemployee,statelogin,setstatelogin } = useContext(MyContext)
+  const { isloggedin,token ,settoken,logemployee, setisloggedin, setlogemployee,statelogin,setstatelogin } = useContext(MyContext)
   const navigate = useNavigate()
   return (
     <>
@@ -36,24 +36,20 @@ const Navigation = () => {
       <div className="header2">
         <div><img src={logo}></img></div>
         <div className="linkhome">
-          <div><Link to="/home"> Home</Link> </div>
-          <div><Link to="/"> Services </Link> </div>
-          <div><Link to="/"> Our Team </Link> </div>
-          <div><Link to="/addservice"> Booking Service</Link></div>
-{isloggedin && statelogin ? <div className="dash"> <div> <Link to="/"> My profile</Link></div> <div className="logout" onClick={() => {
-    setisloggedin(false)
-    // setstatelogin("")
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");
-  }}>log out </div></div> :
-""}
+          <Link to="/home"> Home</Link> 
+         <Link to="/"> Services </Link> 
+       <Link to="/"> Our Team </Link>
+          <Link to="/addservice"> Booking Service</Link>
+         {!token? <div className="login"> <Link to="/signin"> login </Link></div>:""}
+         
+{ isloggedin?<div className="dash">  <Link to="/dashboard"> My profile</Link> <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state"); setisloggedin(false);settoken("")
+  }}>log out </div></div> :""
+}
 
-  {logemployee && !statelogin ? <div className="dash"><div> <Link to="/"> My Dashboard</Link></div> <div className="logout" onClick={() => {
-  //  setstatelogin("")
-    setlogemployee(false)
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");
-  }}>log out </div> </div> :  <div className="login"> <Link to="/signin"> login </Link></div> }
-
-
+  { logemployee?<div className="dash"><div> <Link to="/"> My Dashboard</Link></div> <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");   setlogemployee(false);settoken("")
+  }}>log out </div> </div> :  "" }
         </div>
       </div>
 
