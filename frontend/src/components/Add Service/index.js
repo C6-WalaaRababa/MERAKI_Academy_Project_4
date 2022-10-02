@@ -51,8 +51,7 @@ const AddService = () => {
     } catch (error) {
       setstatus1(false)
       if (error.response && error.response.data) {
-        // return setBackMessage1("Error happened while sending your order,plz try again");
-        console.log(error)
+        return setBackMessage1("Error happened while sending your order,plz try again");
       }
     }
 
@@ -105,22 +104,15 @@ const AddService = () => {
 
           </form>
 
-          {/* <button onClick={(e)=>{e.preventDefault();
-        handel("63319b04898c0203cb0bce6d")}}>carpentry </button>
-      <button onClick={(e)=>{e.preventDefault();handel("63319b1b898c0203cb0bce6f")}}> electricity</button>
-      <button onClick={(e)=>{e.preventDefault();handel("63319b2c898c0203cb0bce71")}}> plumbing</button>
-      <button onClick={(e)=>{e.preventDefault();handel("63319b3a898c0203cb0bce73")}}> painting</button>
-
-     { <button onClick={ handel}> submit </button>} */}
+         
           {
             Employee && Employee.map((worker, i) => {
               return (
                 <>
                   <div>
-                    <h3>{worker.firstName}</h3>
-                    <img src={worker.lastName}></img>
-                   {/* <div> <img src={worker.lastName}> </img></div>  */}
-                    <div> {<h4> {worker.firstName}</h4> && <button onClick={() => setidemployee(worker._id)}>choose</button>} </div>
+                    <h4>{worker.firstName}</h4>
+                    <div><img src={worker.imgpath}></img></div>
+                    <div>  <button onClick={() => setidemployee(worker._id)}>choose</button> </div>
                   </div></>)
             })
           }

@@ -27,12 +27,20 @@ function App() {
   const state = { isloggedin, setisloggedin, token, settoken, setlogemployee, logemployee, order, setorder }
   useEffect(() => {
     settoken(localStorage.getItem("token"));
+    setstatelogin(localStorage.getItem("state"))
     if (token) {
       // check token is for user or employee by using req on backen , depend on result >> log in for user or employee 
       settoken(token)
-      setisloggedin(true)
+      if(statelogin)
+      {
+      setisloggedin(true)}
+      if(!statelogin)
+      {
+        setlogemployee(true)
+      }
+
     }
-    if (isloggedin && statelogin) {
+    if (isloggedin) {
       navigate("/home");
     }
     if (logemployee)

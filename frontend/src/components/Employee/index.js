@@ -7,7 +7,7 @@ const LoginEmpolyee = () => {
     const [password, setpassword] = useState("")
     const [BackMessage, setBackMessage] = useState("")
     const navigate=useNavigate();
-    const {  settoken, logemployee, setlogemployee } = useContext(MyContext)
+    const {  settoken, logemployee, setlogemployee ,setstatelogin} = useContext(MyContext)
     const signin = async () => {
         const workerInfo = { email, password }
         try {
@@ -15,6 +15,8 @@ const LoginEmpolyee = () => {
             if (result.data.success) {
                 setlogemployee (true)
                 localStorage.setItem("token", result.data.token)
+                localStorage.setItem("state", !result.data.success)
+                setstatelogin(!result.data.success)
                 settoken(result.data.token)
             }
             else {

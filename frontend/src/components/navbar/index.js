@@ -38,7 +38,7 @@ const Navigation = () => {
           <div><Link to="/home"> Home </Link> </div>
           <div><Link to="/"> Services </Link> </div>
           <div><Link to="/"> Our Team </Link> </div>
-          <div><Link to="/"> Booking Service</Link> </div>
+          <div><Link to="/addservice"> Booking Service</Link> </div>
           {!isloggedin && !token ? <div className="login"> <Link to="/signin"> login </Link></div> : !logemployee ? <div className="dash"> <div><Link to="/dashboard"> My dashboard </Link></div> <div><Link to="/">log out </Link> </div></div>
        : <div className="dash"> <div><Link to="/dashemployee"> My Dashboard </Link> </div>  <div><Link to="/"> log out  </Link> </div> </div>}
 
