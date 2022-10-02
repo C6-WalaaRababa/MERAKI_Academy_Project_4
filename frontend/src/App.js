@@ -23,33 +23,30 @@ function App() {
   const [token, settoken] = useState("");
   const [logemployee, setlogemployee] = useState(false)
   const [order, setorder] = useState([])
-  const[statelogin,setstatelogin]=useState(false)// to  indentify if user login or employee
+  const [statelogin, setstatelogin] = useState()// to  indentify if user login or employee
   const state = { isloggedin, setisloggedin, token, settoken, setlogemployee, logemployee, order, setorder }
   useEffect(() => {
     settoken(localStorage.getItem("token"));
     setstatelogin(localStorage.getItem("state"))
     if (token) {
-      // check token is for user or employee by using req on backen , depend on result >> log in for user or employee 
       settoken(token)
-      if(statelogin)
-      {
-      setisloggedin(true)
-    }
+      if (statelogin) {
+        setisloggedin(true)
+      }
 
-      else if(!statelogin)
-      {
+      if (!statelogin) {
         setlogemployee(true)
       }
 
     }
-    if (isloggedin  && !logemployee && statelogin) {
+    if (isloggedin) {
       navigate("/home");
     }
 
-    if (logemployee && !isloggedin && !statelogin)
+    if (logemployee)
       navigate("/dashemployee")
 
-  }, [token, isloggedin,logemployee,statelogin]);
+  }, [token, isloggedin, logemployee]);
 
   return (
     <>
@@ -64,12 +61,16 @@ function App() {
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <>
+            {isloggedin?
+            <Route path="/myservice" element={<Myservice />} />:""}
 
-  <Route path="/dashboard" element={<Dashboard />} />
-  <Route path="/myservice" element={<Myservice />} />
-  <Route path="/addservice" element={<AddService />} />
-
+            </>
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/myservice" element={<Myservice />} />
+            <Route path="/addservice" element={<AddService />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashemployee" element={<AllOrder />} />
             <Route path="/state order" element={<PendingOrder />} />
 

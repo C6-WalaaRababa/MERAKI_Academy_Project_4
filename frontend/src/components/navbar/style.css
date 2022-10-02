@@ -67,3 +67,13 @@ padding: 12px; */
   align-items: center;
   height: 100px
 }
+.logout{
+  color: #001f66;
+  font-size:30px;
+  font-family: fantasy;
+  font-weight: 500px;
+  text-decoration: underline;
+  align-self: center;
+  text-transform: capitalize;
+  text-decoration: none;
+}

@@ -4,7 +4,8 @@ import { MyContext } from "../../App";
 import "./style.css";
 import logo from './logo1.png'
 const Navigation = () => {
-  const { isloggedin, token, logemployee } = useContext(MyContext)
+  const { isloggedin,token ,logemployee, setisloggedin, setlogemployee,statelogin,setstatelogin } = useContext(MyContext)
+  const navigate = useNavigate()
   return (
     <>
       <div className="header">
@@ -35,17 +36,29 @@ const Navigation = () => {
       <div className="header2">
         <div><img src={logo}></img></div>
         <div className="linkhome">
-          <div><Link to="/home"> Home </Link> </div>
+          <div><Link to="/home"> Home</Link> </div>
           <div><Link to="/"> Services </Link> </div>
           <div><Link to="/"> Our Team </Link> </div>
-          <div><Link to="/addservice"> Booking Service</Link> </div>
-          {!isloggedin && !token ? <div className="login"> <Link to="/signin"> login </Link></div> : !logemployee ? <div className="dash"> <div><Link to="/dashboard"> My dashboard </Link></div> <div><Link to="/">log out </Link> </div></div>
-       : <div className="dash"> <div><Link to="/dashemployee"> My Dashboard </Link> </div>  <div><Link to="/"> log out  </Link> </div> </div>}
+          <div><Link to="/addservice"> Booking Service</Link></div>
+{isloggedin && statelogin ? <div className="dash"> <div> <Link to="/"> My profile</Link></div> <div className="logout" onClick={() => {
+    setisloggedin(false)
+    // setstatelogin("")
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");
+  }}>log out </div></div> :
+""}
+
+  {logemployee && !statelogin ? <div className="dash"><div> <Link to="/"> My Dashboard</Link></div> <div className="logout" onClick={() => {
+  //  setstatelogin("")
+    setlogemployee(false)
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");
+  }}>log out </div> </div> :  <div className="login"> <Link to="/signin"> login </Link></div> }
+
 
         </div>
       </div>
 
     </>
+   
   )
 
 
