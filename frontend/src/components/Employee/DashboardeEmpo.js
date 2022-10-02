@@ -1,9 +1,12 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const DashboardeEmployee = () => {
+
   return (
-    <div>DashboardeEmpo</div>
-    
+    <>
+    <div>Dashboarde Empoloyee</div>
+    <div></div>
+    </>
   )
 }
 

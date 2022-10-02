@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useState, useEffect } from 'react'
 import { MyContext } from '../../App'
 import axios from 'axios'
+import "./style.css"
 const AddService = () => {
   const [Title, setTitle] = useState("")
   const [Descriotion, setDescriotion] = useState("")
@@ -98,28 +99,30 @@ const AddService = () => {
               <option value="63319b1b898c0203cb0bce6f">electricity</option>
               <option value="63319b2c898c0203cb0bce71">plumbing</option>
               <option value="63319b3a898c0203cb0bce73">painting</option>
-              {/* <input type="submit" value="Submit" />  */}
-
             </select>
 
           </form>
 
-         
+         <div className='employee-list'>
           {
             Employee && Employee.map((worker, i) => {
               return (
                 <>
-                  <div>
-                    <h4>{worker.firstName}</h4>
+                  <div className='employee'>
                     <div><img src={worker.imgpath}></img></div>
+                    <h4>{worker.firstName}</h4>
+<h5>{worker.rate}</h5>
                     <div>  <button onClick={() => setidemployee(worker._id)}>choose</button> </div>
                   </div></>)
             })
           }
+         </div>
           <button onClick={submitOrder}> submit order </button>
           <div> {status1?<div>{BackMessage1}</div> :<div> {BackMessage1}</div> }</div>
-        </div>
+
+          </div>
           : ""}
+        
     </>
   )
 }

@@ -33,19 +33,23 @@ function App() {
       settoken(token)
       if(statelogin)
       {
-      setisloggedin(true)}
-      if(!statelogin)
+      setisloggedin(true)
+    }
+
+      else if(!statelogin)
       {
         setlogemployee(true)
       }
 
     }
-    if (isloggedin) {
+    if (isloggedin  && !logemployee && statelogin) {
       navigate("/home");
     }
-    if (logemployee)
+
+    if (logemployee && !isloggedin && !statelogin)
       navigate("/dashemployee")
-  }, [token, isloggedin]);
+
+  }, [token, isloggedin,logemployee,statelogin]);
 
   return (
     <>
@@ -56,7 +60,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-
             <Route path="/team" element={<Team />} />
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
@@ -67,8 +70,7 @@ function App() {
   <Route path="/addservice" element={<AddService />} />
 
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
-            <Route path="/dashemployee" element={<DashboardeEmployee />} />
-            <Route path="/all order" element={<AllOrder />} />
+            <Route path="/dashemployee" element={<AllOrder />} />
             <Route path="/state order" element={<PendingOrder />} />
 
 

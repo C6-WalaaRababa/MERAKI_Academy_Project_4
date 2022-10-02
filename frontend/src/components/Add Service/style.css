@@ -1,0 +1,10 @@
+.employee img{
+    width:300px;
+    border-radius: 55%;
+    height: 300px;
+}
+.employee-list{
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
