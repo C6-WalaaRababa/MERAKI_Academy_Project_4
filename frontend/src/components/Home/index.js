@@ -2,31 +2,25 @@ import axios from "axios"
 import { useEffect, useState, useContext } from "react"
 import { MyContext } from "../../App"
 import Team from "./Team"
+import plumber from "./plumber.jpg"
+import "./style.css"
 const Home = () => {
-    const [section, setsection] = useState([])
+    const [department, setdepatment] = useState([])
     const [Backmessage, setBackmessage] = useState("")
     const { token } = useContext(MyContext)
     const getsection = async () => {
         try {
-            const res = await (axios.get(`http://localhost:5000/section`, {
-                headers: { authorization: "Bearer " + token }
-            }))
-
+            const res = await (axios.get(`http://localhost:5000/section`))
             if (res.data.success) {
-                setsection([section, ...res.data.section])
-                setBackmessage("")
+               setdepatment(res.data.section)
             }
             else { throw Error }
         }
         catch (error) {
-            if (!res.data.success) {
-                return setBackmessage(error.response.data.message)
-            }
-            setBackmessage(`there is an error in loading section `)
-
+            return setBackmessage(error.response.data.message)
         }
     }
-   
+
     useEffect(() => {
         getsection()
     }, [])
@@ -34,20 +28,26 @@ const Home = () => {
 
     return (
         <>
-            <div> Main Home Pape</div>
-            <div> silder</div>
-                {
-                    // show categoy in app 
-                    section ? section.map((element, i) => {
-                        return (
-                            <div key={section.id}>
-                                <div> {element.title}</div>
-                            </div>
-                        )
-                    }) : ""}
-                <Team/>
-                <div> {Backmessage}</div>
-            
+
+            <div className="center-top">
+                <div className="part1">
+                    <h3> we will take care of Maintanence needs</h3>
+                    <h1> We Provide the Best Home Maintanence Services</h1>
+                </div>
+            </div>
+           
+                <h1> Our Services</h1>
+                <div className="center-center">
+                    {
+                       department && department.map((element, i) => {
+                            return (
+                                <div className="item">{element.title}</div>
+                            )
+                        })}
+                </div>
+               
+            <Team />
+            <h5> {Backmessage}</h5>
         </>
     )
 

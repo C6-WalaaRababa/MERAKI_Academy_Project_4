@@ -23,15 +23,21 @@ span {
  grid-template-columns: 2fr 7fr;
   align-items: center;
   justify-content: center;
-  padding-top: 19px;
+  height: 90px;
+  padding-bottom: 10px;
   /* color: #E60B63; */
+}
+.header2 img{
+height: 90px;
+
 }
 
 .linkhome {
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1.5fr 2fr;
+height: 100px;
 justify-content: center;
-align-self: center;
+align-items: center;
 }
 .linkhome div a {
   color: #001f66;
@@ -59,4 +65,5 @@ padding: 12px; */
   display: flex;
   justify-content:space-around;
   align-items: center;
+  height: 100px
 }

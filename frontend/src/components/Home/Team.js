@@ -8,20 +8,14 @@ const [employee, setemployee] = useState([])
 const [Backmessage, setBackmessage] = useState("")
     const getemployee = async () => {
         try {
-            const res = await (axios.get(`http://localhost:5000/employee`, {
-                headers: { authorization: "Bearer " + token }
-            }))
-
+            const res = await (axios.get(`http://localhost:5000/employee/ourteam`))
             if (res.data.success) {
-                setemployee([employee, ...res.data.employees])
-                setBackmessage("")
+                setemployee(res.data.employees)
             }
             else { throw Error }
         }
         catch (error) {
-            if (!res.data.success) { return setBackmessage(error.response.data.message) }
-
-            setBackmessage(`there is an error in loading employee `)
+          { return setBackmessage(error.response.data.message) }
 
         }
     }
@@ -31,13 +25,13 @@ const [Backmessage, setBackmessage] = useState("")
     
   return (
     <>
-    <div>Our Team</div>
+    <h1> Our Team</h1>
   
     {
                     employee ? employee.map((worker, i) => {
                         return (
                             <div>
-                                <div> {worker.firstName} , {worker.lastName}</div>
+                                <div> {worker.firstName} , {worker.rate}</div>
                             </div>
                         )
                     })

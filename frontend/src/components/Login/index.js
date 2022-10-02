@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setpassword] = useState("")
   const [BackeMessage, SetBackMessage] = useState("");
   const [status, setstatus] = useState(false)
-  const { isloggedin, setisloggedin, settoken, token } = useContext(MyContext)
+  const { isloggedin, setisloggedin, settoken, setstatelogin} = useContext(MyContext)
   const navigate = useNavigate();
   const signin = async () => {
     const userInfo = { email, password }
@@ -21,6 +21,9 @@ const Login = () => {
         settoken(result.data.token);
         setisloggedin(true)
         SetBackMessage(result.data.message);
+        localStorage.setItem("state", result.data.success)
+        setstatelogin(result.data.success)
+
       }
       else {
         throw Error

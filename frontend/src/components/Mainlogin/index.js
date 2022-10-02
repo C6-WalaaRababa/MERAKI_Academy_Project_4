@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import "./style.css"
 import slide from './silde.png'
 
-const MainPage = () => {
+const Mainlogin = () => {
     return (
         <>
         <div className='center'>
@@ -27,4 +27,4 @@ const MainPage = () => {
     )
 }
 
-export default MainPage
+export default Mainlogin
