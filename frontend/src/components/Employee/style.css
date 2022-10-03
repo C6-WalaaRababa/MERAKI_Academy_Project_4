@@ -1,4 +1,14 @@
-.tabel-order table th
-{
-    border: 3px solid #000;
+table {
+    width: 100%;
+  }
+  table th{
+    border: 5px solid #ff0000;
+  width:15%;
+    font-size: 23px;
+  }
+table td {
+  text-align:center;
+
 }
+
+

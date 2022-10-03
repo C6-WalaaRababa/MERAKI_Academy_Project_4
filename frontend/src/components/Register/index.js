@@ -27,7 +27,7 @@ const Register = () => {
       }
     } catch (error) {
       setstatus(false);
-      if (error.response && error.response.data) {
+     {
         return SetBackMessage("Error happened while register, plz try again");
       }
     }

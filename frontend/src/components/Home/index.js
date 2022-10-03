@@ -49,7 +49,7 @@ const Home = () => {
                         })}
                 </div>
                
-            <Team />
+            {/* <Team /> */}
             <h5> {Backmessage}</h5>
         </>
     )

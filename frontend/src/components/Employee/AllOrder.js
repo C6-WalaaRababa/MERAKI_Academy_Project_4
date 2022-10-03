@@ -4,17 +4,18 @@ import axios from "axios"
 import "./style.css"
 import { useState } from 'react'
 import { MyContext } from '../../App'
-// import {BsCheckLg,BsXLg} from "react-icons/bs";
+import {BsCheckLg,BsXLg} from "react-icons/bs";
+import { useNavigate } from 'react-router-dom'
 const AllOrder = () => {
     const [Backmessage, setBackmessage] = useState("")
-    const { token, order, setorder } = useContext(MyContext)
-
+    const { token, order, setorder,logempolyee } = useContext(MyContext)
+const navigate=useNavigate()
     const myorder = async () => {
         try {
             const result = await (axios.get(`http://localhost:5000/service/employee`, {
                 headers: { authorization: "Bearer " + token }
             }))
-            // console.log(result.data)
+           
             if (result.data.success) {
                 setorder(result.data.Orders)
 
@@ -23,36 +24,42 @@ const AllOrder = () => {
         }
         catch (error) {
             {
-                return setBackmessage(error.response.data.message)
+                // console.log(error.response)
+                setBackmessage(error.response.data.message)
             }
 
         }
     }
-
+const sendemail=(e)=>
+{
+    e.preventDefault();
+        navigate("/sendemail")
+}
     useEffect(() => {
-
-
         { myorder() }
 
-    }, [])
+    }, [logempolyee])
 
 
     return (
         <>
+        
             <div>All Order</div>
-            <div><Link to="/state order">My state Order</Link></div>
+          <Link to="/state order">My state Order</Link>
             {
                 order && order.map((element, i) => {
                     return (
-                    <div className='tabel-order'>
-                        <tr> <th># number of order</th> <th> customer Name</th> <th>customer Address</th> <th> Name of Service </th> <th> Discrption </th> <th>Action</th></tr>
-                        <tr><td>{i}</td> <td>{}</td> <td>{}</td>
-                            <td>{element.title}</td><td>{element.description}</td> <td> {element.statuseofService}</td></tr>
-                            {/* <td> {BsCheckLg} {BsXLg}</td> */}
-                    </div>)
+                   <table>
+                        <tr> <th># number of order</th> <th> customer Name</th> <th>customer Address</th> <th> Name of Service </th> <th> Discrption </th> <th> status of service</th>
+                        <th>action</th> <th> Send Email</th> </tr>
+                        <tr><td>{i}</td> <td>{element.customer.firstName}</td> <td>{element.customer.email}</td>
+                            <td>{element.title}</td><td>{element.description}</td> <td> {element.statuseofService}</td>
+                            <td> <BsCheckLg onClick={console.log("adhik")}/> <BsXLg/></td> <td><button onClick={(e)=>sendemail(e)}> Send  Confirmation</button></td></tr>
+                            </table>)
                 })
 
             }
+       
             <div>{Backmessage ? <p>{Backmessage}</p> : ""}</div>
         </>
     )

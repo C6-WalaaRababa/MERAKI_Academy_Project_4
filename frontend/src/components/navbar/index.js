@@ -43,12 +43,12 @@ const Navigation = () => {
          {!token? <div className="login"> <Link to="/signin"> login </Link></div>:""}
          
 { isloggedin?<div className="dash">  <Link to="/dashboard"> My profile</Link> <div className="logout" onClick={() => {
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state"); setisloggedin(false);settoken("")
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("")
   }}>log out </div></div> :""
 }
 
-  { logemployee?<div className="dash"><div> <Link to="/"> My Dashboard</Link></div> <div className="logout" onClick={() => {
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");   setlogemployee(false);settoken("")
+  { logemployee?<div className="dash"><div> <Link to="/dashemployee"> My Dashboard</Link></div> <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");  localStorage.removeItem("statelogin"); setlogemployee(false);settoken("")
   }}>log out </div> </div> :  "" }
         </div>
       </div>

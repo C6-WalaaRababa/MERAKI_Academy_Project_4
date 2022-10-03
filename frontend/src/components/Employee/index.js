@@ -13,19 +13,19 @@ const LoginEmpolyee = () => {
         try {
             const result = await axios.post(`http://localhost:5000/employee/login`, workerInfo)
             if (result.data.success) {
-                setlogemployee (true)
+                
                 localStorage.setItem("token", result.data.token)
-                // localStorage.setItem("state", !result.data.success)
-                // setstatelogin(!result.data.success)
+                localStorage.setItem("statelogin", result.data.state)
+                setstatelogin(result.data.state)
                 settoken(result.data.token)
+                setlogemployee (true)
             }
             else {
                 throw Error
             }
         }
         catch (error) {
-            if (error.response && error.response.data) {
-                // console.log(error.response.data.message)
+          {
                 return setBackMessage(error.response.data.message);
             }
 
@@ -42,13 +42,6 @@ const LoginEmpolyee = () => {
 
 
 
-
-{/* <div>
-                    <div><Link to="/state order">My state Order  </Link></div>
-                    <div><Link to="/all order">My all order  </Link></div>
-                    <div><Link to="/my profile">My profile  </Link> </div>
-                    <div> <Link to="/log out">log out  </Link> </div>
-                </div> */}
 
 
     return (
@@ -74,7 +67,7 @@ const LoginEmpolyee = () => {
                     <button onClick={signin}> log in </button>
                 </div> : ""
             }
-            <div> {BackMessage ? <h2> {BackMessage}</h2>:""}</div>
+            <div>{BackMessage}</div>
 
         </>
 
