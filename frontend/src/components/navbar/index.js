@@ -38,7 +38,7 @@ const Navigation = () => {
         <div className="linkhome">
           <Link to="/home"> Home</Link> 
          <Link to="/"> Services </Link> 
-       <Link to="/"> Our Team </Link>
+       <Link to="/team"> Our Team </Link>
           <Link to="/addservice"> Booking Service</Link>
          {!token? <div className="login"> <Link to="/signin"> login </Link></div>:""}
          

@@ -12,6 +12,7 @@ import LoginEmpolyee from "./components/Employee";
 import DashboardeEmployee from "./components/Employee/DashboardeEmpo";
 import AllOrder from "./components/Employee/AllOrder";
 import PendingOrder from "./components/Employee/PendingOrder";
+import MainPage from "./components/Mainlogin";
 import Team from "./components/Home/Team";
 import Mainlogin from "./components/Mainlogin";
 import Contact from "./components/Employee/Contact";
@@ -24,7 +25,8 @@ function App() {
   const [logemployee, setlogemployee] = useState(false)
   const [order, setorder] = useState([])
   const [statelogin, setstatelogin] = useState("")// to  indentify if user login or employee
-  const state = { isloggedin, setisloggedin, token, settoken, setlogemployee, logemployee, order, setorder }
+  const [userinfo, setuserinfo] = useState("")
+  const state = { isloggedin, setisloggedin, token, settoken, setlogemployee, logemployee, order, setorder, statelogin, setstatelogin, userinfo, setuserinfo }
   const savetoken = (token, statelogin) => {
     settoken(token);
     if (statelogin === "user") {
@@ -39,20 +41,12 @@ function App() {
     settoken(localStorage.getItem("token"));
     setstatelogin(localStorage.getItem("statelogin"))
     if (token) {
-      // settoken(token);
-      // if(statelogin)
 
-      //   {
-      //     return setisloggedin(true)
-      //   }
-      //   else
-      //  {
-      //   return setlogemployee(true)}
       savetoken(token, statelogin)
     }
     if (isloggedin) { return navigate("/home") }
     if (logemployee) { return navigate("/dashemployee") }
-  }, [token,isloggedin,logemployee])
+  }, [token, isloggedin, logemployee])
 
   return (
     <>
@@ -67,11 +61,7 @@ function App() {
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-
-
             <Route path="/myservice" element={<Myservice />} />
-
-
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/myservice" element={<Myservice />} />
@@ -79,7 +69,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashemployee" element={<AllOrder />} />
             <Route path="/state order" element={<PendingOrder />} />
-<Route path="/sendemail" element={<Contact/>}/>
+            <Route path="/sendemail" element={<Contact />} />
 
           </Routes>
 

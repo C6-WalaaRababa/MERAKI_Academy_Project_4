@@ -8,7 +8,7 @@
     border: 2px solid #eeff;
     height: 680px;
   }
-  input {
+  .register-form input {
     padding: 20px;
     width: 60%;
     font-size: 22px;
