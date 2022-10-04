@@ -7,11 +7,14 @@ const employeeRouter = require("./Routes/employee");
 const serviceRouter = require("./Routes/service");
 require("dotenv").config();
 require("./models/db");
+const nodemailer = require('nodemailer');
+const mailRouter = require("./Routes/mail");
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
+
 app.use(express.json());
 
 // Import Routers
@@ -20,6 +23,7 @@ app.use("/users",userRouter)
 app.use("/section",categoryRouter)
 app.use("/employee",employeeRouter)
 app.use("/service",serviceRouter)
+app.use("/sendmail",mailRouter)
 // Routes Middleware
 
 

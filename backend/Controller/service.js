@@ -14,6 +14,7 @@ const addService = (req, res) => {
         section,
         worker,
         statuseofService,
+        Date:""
     });
     newService
         .save()
@@ -36,7 +37,8 @@ const addService = (req, res) => {
 };
 const getserviceByWorker = (req, res) => {
     serviceModel.find({ worker: req.token.employeeID })
-
+    .populate("customer", " email firstName")
+.exec()
         .then((result) => {
 
             if (!result.length)// mean there is no order for employee
@@ -87,9 +89,32 @@ const updateServiceByWorker = (req, res) => {
     });
     const { statuseofService, Date } = req.body
     const pathService = req.params.id
-    serviceModel.findByIdAndUpdate({ _id: pathService }, { statuseofService, Date }, { new: true })
+    serviceModel.findByIdAndUpdate({ _id: pathService }, { statuseofService, Date}, { new: true })
         .then((result) => {
             res.status(201).json({ success: true, message: "orders updated Successfully", order: result })
+        })
+        .catch((error) => {
+            res.status(400).json({
+                success: false,
+                error: error.message
+            })
+
+        })
+}
+const updateServiceByuser = (req, res) => {
+    const filter = req.body;
+    Object.keys(filter).forEach((key) => {
+      filter[key] == "" && delete filter[key];
+    });
+    const {Comment} = req.body
+    const pathService = req.params.id
+    serviceModel.findByIdAndUpdate({ _id: pathService }, {Comment}, { new: true })
+    .populate("section", "title")
+    .populate("worker", " imgpath firstName")
+    .exec()
+        .then((result) => {
+            res.status(201).json({ success: true, message: "orders updated Successfully",
+             order: result })
         })
         .catch((error) => {
             res.status(400).json({
@@ -102,9 +127,9 @@ const updateServiceByWorker = (req, res) => {
 const getservicesbyUser = (req, res) => 
 {
     serviceModel.find({ customer: req.token.UserID })
-    .populate("section", "-_id -__v")
-    .populate("worker","firstName lastName -_id")
-
+    .populate("section", "title")
+    .populate("worker", " imgpath firstName")
+    .exec()
         .then((result) => 
         {
             if (!result.length)// mean there is no order for user 
@@ -147,4 +172,4 @@ const getservicesbyUser = (req, res) =>
         }
 
 
-module.exports = { addService, getserviceByWorker, updateServiceByWorker ,getservicesbyUser,deletservicesbyUser}
+module.exports = { addService, getserviceByWorker, updateServiceByWorker ,getservicesbyUser,deletservicesbyUser,updateServiceByuser}

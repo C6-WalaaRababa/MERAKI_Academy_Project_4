@@ -58,6 +58,7 @@ const loginEmployee = (req, res) => {
           res.json({
             success: true,
             message: "Valid login credentials",
+            state:"employee",
             token: token,
           });
         } catch (error) {

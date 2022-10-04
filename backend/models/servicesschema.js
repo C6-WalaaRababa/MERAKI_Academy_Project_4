@@ -7,7 +7,7 @@ const serviceSchema=new mongoose.Schema({
     worker:{type:mongoose.Schema.Types.ObjectId,ref:"employee"},
     statuseofService:{type:String},
     Date:{type:Date},
-    iscopmleted:{type:Boolean}
+    Comment:{type:String}
 }
 
 )
