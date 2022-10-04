@@ -5,7 +5,6 @@ import { MyContext } from '../../App'
 import "./style.css";
 const Dashboard = () => {
     const [myorders, setmyorders] = useState([])
-    const [done, setdone] = useState()
     const [comment, setcomment] = useState("")
     const { token } = useContext(MyContext)
     const [Backmessage, setBackmessage] = useState("")
@@ -37,15 +36,14 @@ const Dashboard = () => {
                 headers: { authorization: "Bearer " + token }
             }))
             if (response.data.success) {
-            
-                const newservice = myorders.forEach((element) => {
-                    if (element._id === id) {
-                        element.comment = comment;
+                const newservice = myorders.map((element) => {
+                    if (element._id == id) {
+                        element.Comment = comment;
                     }
                     return (element)
                 })
-                setmyorders([...myorders,...newservice])
-
+                
+setmyorders(newservice)
             }
             else { throw Error }
         }
@@ -57,6 +55,29 @@ const Dashboard = () => {
 
         }
 
+    }
+    const cancelmyorder = async (id) => {
+        try {
+            const response = await (axios.delete(`http://localhost:5000/service/myservice/${id}`, {
+                headers: { authorization: "Bearer " + token }
+            }))
+            if (response.data.success) {
+                
+                const ordernewe=myorders.filter((e,i)=>
+                {
+                    return(e._id!==id)
+                })
+                setmyorders(ordernewe)
+            }
+            else { throw Error }
+        }
+        catch (error) {
+
+            {
+                setBackmessage(error.response.data.message)
+            }
+
+        }
     }
     useEffect(() => {
         getmyorder()
@@ -77,23 +98,23 @@ const Dashboard = () => {
                             <div> <img src={element.worker.imgpath}></img>
                             </div>
                             <p>{element.statuseofService}</p>
-                            <div> {element.statuseofService == "approved" ?
+                           <p>{element.Date ?<h3> The date is{element.Date}</h3> :<h3> no DATE has been set</h3>}</p>
+                            <div> {!element.Comment && element.statuseofService==="approved"?
                                 <div>
-                                    {/* <label for="yes_no_radio">Does your service completed?</label> */}
-                                    {/* <input type="radio" name="yes_no" onChange={(e) => setdone(true)} checked>Yes</input>
-                                    <input type="radio" name="yes_no" onChange={(e) => setdone(false)}>No</input>
-                                    <input type="text"
-                                        placeholder='give us your feed back about service'></input> */}
+
                                        <input type="text"
                                         placeholder='give us your feed back about service' onChange={(e)=>{setcomment(e.target.value)}}></input>
 
                                     <button on onClick={() =>
                                         sendfeedback(element._id)}> send</button>
-                                </div>
+                                </div>:''
 
-                                : ""}
+                                }
+                                {
+                                    element.Comment?<h2>your feed back is {element.Comment}</h2>:""
+                                }
                             </div>
-
+<button onClick={()=>{ cancelmyorder(element._id)}} > Cancel Order</button>
 
                         </div>
                     </>

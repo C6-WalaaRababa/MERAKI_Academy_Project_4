@@ -5,7 +5,6 @@ import "./style.css"
 import { useState } from 'react'
 import { MyContext } from '../../App'
 import { useNavigate } from 'react-router-dom'
-// import { Mailer } from 'nodemailer-react'
 
 // let testAccount = nodemailer.createTestAccount();
 // let transpoter = nodemailer.createTransport({
@@ -104,7 +103,7 @@ const sendemail=async(id,email,firstName)=>
        
         if (result.data.success) {
 {/* <Sendmail email={email} firstName={firstName} Date={Date}/> */}
-            const neworder=order.forEach((element) => {
+            const neworder=order.map((element) => {
             if (element._id===id)
            {
             element.statuseofService="approved";
@@ -112,7 +111,7 @@ const sendemail=async(id,email,firstName)=>
            }
            return(element)
         })
-        setorder([...order,...neworder])
+        setorder(neworder)
 
     }
         else { throw Error }
