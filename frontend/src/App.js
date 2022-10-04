@@ -1,23 +1,22 @@
 import "./App.css";
+import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import { createContext, useState, useEffect } from "react";
 import Navigation from "./components/navbar";
 import Register from "./components/Register";
-import Dashboard from "./components/Dashboard";
 import AddService from "./components/Add Service";
-import Myservice from "./components/Dashboard/Myservice";
+import Dashboard from "./components/Dashboard";
 import LoginEmpolyee from "./components/Employee";
-import DashboardeEmployee from "./components/Employee/DashboardeEmpo";
 import AllOrder from "./components/Employee/AllOrder";
 import PendingOrder from "./components/Employee/PendingOrder";
-import MainPage from "./components/Mainlogin";
 import Team from "./components/Home/Team";
 import Mainlogin from "./components/Mainlogin";
 import Contact from "./components/Employee/Contact";
+// import { Mailer } from "nodemailer-react";
+
 export const MyContext = createContext();
-// import pic from "./images/mypic.png";
 function App() {
   const navigate = useNavigate()
   const [isloggedin, setisloggedin] = useState(false);
@@ -61,15 +60,30 @@ function App() {
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/myservice" element={<Myservice />} />
             <Route path="/loginemployee" element={<LoginEmpolyee />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/myservice" element={<Myservice />} />
-            <Route path="/addservice" element={<AddService />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashemployee" element={<AllOrder />} />
-            <Route path="/state order" element={<PendingOrder />} />
             <Route path="/sendemail" element={<Contact />} />
+
+            <>{
+              isloggedin ? <>
+     <Route path="/home" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/addservice"  element={<AddService />} />
+                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
+              </>
+                : ""}
+            </>
+            <>
+              {
+                logemployee ? <>
+                  <Route path="/dashemployee" element={<AllOrder />} />
+                  <Route path="/state order" element={<PendingOrder />} />
+                </> : ""
+              }
+
+
+            </>
+
 
           </Routes>
 

@@ -21,7 +21,7 @@ const Login = () => {
         settoken(result.data.token);
         setisloggedin(true)
         SetBackMessage(result.data.message);
-        localStorage.setItem("statelogin", result.data.state)
+        localStorage.setItem("statelogin",result.data.state)
         setstatelogin(result.data.state)
 
       }

@@ -8,6 +8,7 @@ const Team = () => {
   const [employee, setemployee] = useState([]);
   const [Backmessage, setBackmessage] = useState("");
   const [search, setsearch] = useState("")
+  
   const getemployee = async () => {
     try {
       const res = await axios.get(`http://localhost:5000/employee/ourteam`);
@@ -28,7 +29,14 @@ const Team = () => {
     try {
         const res = await axios.get(`http://localhost:5000/employee/search_2?search=${search}`);
         if (res.data.success) {
+            // console.log(res.data.employees)
             setemployee(res.data.employees);
+        //   const newEmployee=employee.filter((element,i)=>
+        //   {
+        //     return element.firstName==
+        //   })  
+      
+         
         } else {
           throw Error;
         }
@@ -49,7 +57,7 @@ const Team = () => {
      <input type="text" width="40" placeholder="search employee" onChange={(e)=>{setsearch(e.target.value)}}></input>
      <button onClick={searchemployee}> search </button>
      </div>
-
+     <div className='employee-list'>
       {employee
         ? employee.map((worker, i) => {
             return (
@@ -65,6 +73,7 @@ const Team = () => {
             );
           })
         : ""}
+        </div>
     </>
   );
 };

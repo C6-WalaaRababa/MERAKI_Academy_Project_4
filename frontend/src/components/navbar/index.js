@@ -36,15 +36,17 @@ const Navigation = () => {
       <div className="header2">
         <div><img src={logo}></img></div>
         <div className="linkhome">
+        {!token?<>
           <Link to="/home"> Home</Link> 
          <Link to="/"> Services </Link> 
        <Link to="/team"> Our Team </Link>
-          <Link to="/addservice"> Booking Service</Link>
-         {!token? <div className="login"> <Link to="/signin"> login </Link></div>:""}
+      <Link to="/signin"> login </Link> </>:""}
          
-{ isloggedin?<div className="dash">  <Link to="/dashboard"> My profile</Link> <div className="logout" onClick={() => {
+{ isloggedin?  <> <Link to="/home"> Home</Link>  <Link to="/addservice"> Booking Service</Link>
+<Link to="/dashboard"> My Dashboard</Link> 
+<div className="dash">  <Link to="/"> My profile</Link> <div className="logout" onClick={() => {
     navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("")
-  }}>log out </div></div> :""
+  }}>log out </div></div> </>  :""
 }
 
   { logemployee?<div className="dash"><div> <Link to="/dashemployee"> My Dashboard</Link></div> <div className="logout" onClick={() => {
