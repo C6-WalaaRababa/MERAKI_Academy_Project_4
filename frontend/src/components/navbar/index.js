@@ -8,7 +8,28 @@ const Navigation = () => {
   const navigate = useNavigate()
   return (
     <>
-      <div className="header">
+      <div className="header2">
+        <div><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1664991337/my%20image/ddd_njduiy.png"></img></div>
+        <div className="linkhome">
+        {!token?<>
+          <Link to="/home"> Home</Link> 
+         <Link to="/"> Services </Link> 
+       <Link to="/team"> Our Team </Link>
+      <Link to="/signin"> login </Link> </>:""}
+         
+{ isloggedin?  <> <Link to="/home"> Home</Link>  <Link to="/addservice"> Booking Service</Link>
+<Link to="/dashboard"> My Dashboard</Link> 
+<div className="dash">  <Link to="/"> My profile</Link> <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("")
+  }}>log out </div></div> </>  :""
+}
+
+  { logemployee?<div className="dash"><div> <Link to="/dashemployee"> My Dashboard</Link></div> <div className="logout" onClick={() => {
+    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");  localStorage.removeItem("statelogin"); setlogemployee(false);settoken("")
+  }}>log out </div> </div> :  "" }
+        </div>
+      </div>
+       <div className="header">
         <div className="icon-left">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
@@ -30,28 +51,6 @@ const Navigation = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-lightbulb-off-fill" viewBox="0 0 16 16">
             <path d="M2 6c0-.572.08-1.125.23-1.65l8.558 8.559A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm10.303 4.181L3.818 1.697a6 6 0 0 1 8.484 8.484zM5 14.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5zM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12z" />
           </svg>
-        </div>
-      </div>
-
-      <div className="header2">
-        <div><img src={logo}></img></div>
-        <div className="linkhome">
-        {!token?<>
-          <Link to="/home"> Home</Link> 
-         <Link to="/"> Services </Link> 
-       <Link to="/team"> Our Team </Link>
-      <Link to="/signin"> login </Link> </>:""}
-         
-{ isloggedin?  <> <Link to="/home"> Home</Link>  <Link to="/addservice"> Booking Service</Link>
-<Link to="/dashboard"> My Dashboard</Link> 
-<div className="dash">  <Link to="/"> My profile</Link> <div className="logout" onClick={() => {
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("")
-  }}>log out </div></div> </>  :""
-}
-
-  { logemployee?<div className="dash"><div> <Link to="/dashemployee"> My Dashboard</Link></div> <div className="logout" onClick={() => {
-    navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("state");  localStorage.removeItem("statelogin"); setlogemployee(false);settoken("")
-  }}>log out </div> </div> :  "" }
         </div>
       </div>
 

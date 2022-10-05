@@ -95,7 +95,7 @@ setmyorders(newservice)
                             <h2>{element.description}</h2>
                             <p>section:{element.section.title}</p>
                             <h2>{element.worker.firstName}</h2>
-                            <div> <img src={element.worker.imgpath}></img>
+                            <div className='worker'> <img src={element.worker.imgpath}></img>
                             </div>
                             <p>{element.statuseofService}</p>
                            <p>{element.Date ?<h3> The date is{element.Date}</h3> :<h3> no DATE has been set</h3>}</p>

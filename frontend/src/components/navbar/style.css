@@ -1,7 +1,8 @@
 .header {
   height: 40px;
-  background-color: #001f66;
-  background-color: #E60B63;
+  background-color:#080708;
+
+  /* background-color: #E6E8E6; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,24 +24,24 @@ span {
  grid-template-columns: 2fr 7fr;
   align-items: center;
   justify-content: center;
-  height: 90px;
+  height: 13vh;
   padding-bottom: 10px;
-  /* color: #E60B63; */
+  background-color: #E60B63;
+  color:#083D77;
 }
 .header2 img{
-height: 90px;
 
+height:13vh;
 }
 
 .linkhome {
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1.5fr 2fr;
-height: 100px;
 justify-content: center;
 align-items: center;
 }
 .linkhome  a {
-  color: #001f66;
+  color: #fff;
 font-size:30px;
 font-family: fantasy;
 font-weight: 500px;

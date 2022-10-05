@@ -10,8 +10,6 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.3",
     "fs.promises": "^0.1.2",
-    "nodemailer": "^6.8.0",
-    "nodemailer-react": "0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",

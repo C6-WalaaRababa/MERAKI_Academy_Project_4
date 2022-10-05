@@ -1,6 +1,6 @@
 .center-top{
     background: linear-gradient(rgba(17, 5, 5, 0.8), rgba(1, 1, 23, 0.8)),
-  url("./plumber.jpg"); 
+  url("https://res.cloudinary.com/dzmmijyxh/image/upload/v1664995166/my%20image/plumber_mhfn9e.jpg"); 
 background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
@@ -13,7 +13,6 @@ height: 600px;
     color: #fff;
     padding:100px;
     text-align: center;
-    border: 2px solid #fff;
 
 }
 .part1 h1{
@@ -37,7 +36,7 @@ align-items: center;
     
 }
 .employee img{
-  width:300px;
+  width:20vw;
   border-radius: 55%;
   height: 300px;
 }
@@ -45,4 +44,7 @@ align-items: center;
   padding-top: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+span {
+  color:#000;
 }

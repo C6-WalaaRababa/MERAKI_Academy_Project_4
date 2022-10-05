@@ -14,8 +14,6 @@ import PendingOrder from "./components/Employee/PendingOrder";
 import Team from "./components/Home/Team";
 import Mainlogin from "./components/Mainlogin";
 import Contact from "./components/Employee/Contact";
-// import { Mailer } from "nodemailer-react";
-
 export const MyContext = createContext();
 function App() {
   const navigate = useNavigate()
@@ -65,9 +63,9 @@ function App() {
 
             <>{
               isloggedin ? <>
-     <Route path="/home" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/addservice"  element={<AddService />} />
+                <Route path="/addservice" element={<AddService />} />
                 {/* <Route path="/dashboard" element={<Dashboard />} /> */}
 
               </>
@@ -77,7 +75,6 @@ function App() {
               {
                 logemployee ? <>
                   <Route path="/dashemployee" element={<AllOrder />} />
-                  <Route path="/state order" element={<PendingOrder />} />
                 </> : ""
               }
 
