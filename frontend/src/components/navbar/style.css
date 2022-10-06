@@ -1,66 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Roboto:wght@500&family=Satisfy&display=swap');
 .header {
-  height: 40px;
+  height: 6vh;
   background-color:#080708;
-
-  /* background-color: #E6E8E6; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 5px;
 }
-.bi {
-  color: #fff;
-  margin-left: 10px;
-  align-self: center;
-}
-span {
-  font-size: 21px;
-  color: #fff;
-  margin-left: 5px;
-}
 
 .header2 {
   display: grid;
- grid-template-columns: 2fr 7fr;
+ grid-template-columns: 1fr 2fr;
   align-items: center;
-  justify-content: center;
+  justify-content:space-between;
   height: 13vh;
   padding-bottom: 10px;
   background-color: #E60B63;
-  color:#083D77;
+  column-gap: 0.1vw;
+  box-shadow: 0 10px #E60B63;
 }
 .header2 img{
-
 height:13vh;
+width: 10vw;
 }
 
 .linkhome {
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 1.5fr 2fr;
+font-family:'Roboto', sans-serif;
+font-weight: 500;
+font-size: calc(1rem + 0.8vw);
+grid-template-columns: 1fr 1fr 2fr 1fr;
 justify-content: center;
 align-items: center;
+column-gap: 2vw;
 }
 .linkhome  a {
-  color: #fff;
-font-size:30px;
-font-family: fantasy;
-font-weight: 500px;
+  color: #fff; 
 text-decoration: underline;
+justify-content: center;
 align-self: center;
+justify-content: center;
 text-transform: capitalize;
 text-decoration: none;
 }
-.linkhome div :hover{
-background-color: #001f66;
+.linkhome a:hover{
 color: #fff;
-padding: 12px;
+color: #001f66;
 align-items: center;
 }
-.login {
-  /* background-color: #001f66;
-color: #fff;
-padding: 12px; */
-
+.linkhome span{
+  color: #fff;
 }
 .dash{
   display: flex;
@@ -68,13 +57,9 @@ padding: 12px; */
   align-items: center;
   height: 100px
 }
-.logout{
-  color: #001f66;
-  font-size:30px;
-  font-family: fantasy;
-  font-weight: 500px;
-  text-decoration: underline;
-  align-self: center;
-  text-transform: capitalize;
-  text-decoration: none;
+
+span ,span svg{
+color: #fff;
+font-size: calc(0.3rem + 0.9vw);
+margin-right: 2px;;
 }

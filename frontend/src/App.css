@@ -1,20 +1,30 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Satisfy&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Satisfy&display=swap');
 body{
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
+  font-size: 20px;
 }
-.header2{
+h1 
+{
+  /* font-family:'Satisfy', cursive; */
+  font-weight: 500;
+  font-family: 'Noto Serif JP', serif;
+
+  font-size: calc(1.375rem + 1.5vw);
+  ;
+}
+
+.container_row_nav{
   display:flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   justify-items:space-between;
 }
-/* input{
-  width: 23vw;
-  height: 8vh;
-  color: #f6f0ed;
-} */
+
+
 svg{
-  color: #E60B63;
+  /* color: #E60B63; */
   font-size: 1.5rem;
 }

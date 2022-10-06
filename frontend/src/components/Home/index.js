@@ -2,7 +2,6 @@ import axios from "axios"
 import { useEffect, useState, useContext } from "react"
 import { MyContext } from "../../App"
 import Team from "./Team"
-import plumber from "./plumber.jpg"
 import "./style.css"
 //  import {BsWrench} from "react-icons/ai";
 
@@ -19,7 +18,7 @@ const Home = () => {
             else { throw Error }
         }
         catch (error) {
-            return setBackmessage(error.response.data.message)
+             setBackmessage(error.response.data.message)
         }
     }
 

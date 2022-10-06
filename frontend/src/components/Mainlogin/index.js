@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "./style.css"
-import slide from './silde.png'
-
 const Mainlogin = () => {
     return (
         <>
@@ -18,7 +16,7 @@ const Mainlogin = () => {
                     <div> if already don't have an account ,<Link to="/register"> Sign up </Link>  here </div>
                 </div>
             </div>
-            <img src={slide}></img>
+            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1664998542/my%20image/silde_ql6mya.png"></img>
         </div>
         <div className='footer'>
 <span> All rights </span>

@@ -7,16 +7,18 @@ background-position: center;
 height: 600px;  
 }
 .part1{
-    width:50%;
+    width:55%;
     margin: 0 auto;
-    height: 300px;
     color: #fff;
-    padding:100px;
+    padding-top:150px;
+    padding-bottom: 150px;
     text-align: center;
 
 }
-.part1 h1{
-  font-size: 33px;  
+.part1 h1 , .part1 h3{
+  font-family: 'Satisfy', cursive;
+font-size: calc(1rem +1.4vw);
+text-align: center;
 }
 .center-center{
 border: 4px solid #000;

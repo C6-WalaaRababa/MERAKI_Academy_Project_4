@@ -79,11 +79,11 @@ const AllOrder = () => {
 
     return (
         <>
-
-            <div>All Order</div>
+<div className='container_tabel'></div>
+            <h1>All Order</h1>
             <table>
-                            <tr> <th># number of order</th> <th> customer Name</th> <th>customer Email</th> <th> Name of Service </th> <th> Discrption </th> <th> status of service</th> <th> Date</th>
-                                <th> confirme service</th></tr>
+                            <tr> <th># num of order</th> <th> Customer Name</th> <th>Customer Email</th> <th> Name of Service </th> <th> Description about </th> <th> Status of Service</th> <th> Date</th>
+                                <th> Confirme Service</th></tr>
             {
                 order && order.map((element, i) => {
                     return (
