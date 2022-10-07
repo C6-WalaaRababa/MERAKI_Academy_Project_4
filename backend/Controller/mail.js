@@ -761,7 +761,7 @@ const registerEmail=(req,res)=>
     
     from:` Lahloba App <lahlobaservices@gmail.com>`,// Sender address
     to: email, // List of recipients
-    subject: 'Appointment Booking from lahloba app', // Subject line
+    subject: 'Thanks for Registration lahloba app', // Subject line
   html:`<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -924,7 +924,7 @@ const registerEmail=(req,res)=>
         <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px 20px;font-family:arial,helvetica,sans-serif;" align="left">
           
     <h1 style="margin: 0px; color: #171046; line-height: 140%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: 'Raleway',sans-serif; font-size: 49px;">
-      <strong>Welcome!</strong>
+      <strong>Welcome</strong>
     </h1>
   
         </td>
@@ -979,7 +979,7 @@ const registerEmail=(req,res)=>
         <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:35px;font-family:arial,helvetica,sans-serif;" align="left">
           
     <h3 style="margin: 0px; color: #868686; line-height: 170%; text-align: left; word-wrap: break-word; font-weight: normal; font-family: 'Cabin',sans-serif; font-size: 23px;">
-      <div>Dear ${firstName},<br />We're so grateful you've joined us. You'll be the first to hear about all of our latest services. By signing up you automatically get 10% off your next online order.<br />now , you can log in and order service you need .<br /><br /></div>
+      <div>Dear ${firstName}<br />We're so grateful you've joined us.You'll be the first to hear about all of our latest services. By signing up you automatically get 10% off your next order <br /> Now you can log in and order service you need <br /><br /></div>
     </h3>
   
         </td>
@@ -1212,14 +1212,13 @@ const registerEmail=(req,res)=>
   `
  }
 
-
   transport.sendMail(mailOptions, function(err, info) {
     if (err) {
       console.log(err)
       res.json(err)
     } else {
       console.log(info);
-      res.json('email sent')
+      res.json(' register email sent')
     }
  });
  

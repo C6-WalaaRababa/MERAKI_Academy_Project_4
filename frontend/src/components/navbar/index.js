@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { MyContext } from "../../App";
 import "./style.css";
 import { BsPersonCircle,BsFillEnvelopeFill,BsLightbulbFill,BsLightbulbOffFill} from 'react-icons/bs'
+import {RiUserShared2Fill}from 'react-icons/ri'
 import {ImClock} from 'react-icons/im'
 const Navigation = () => {
   const { isloggedin,token ,settoken,logemployee, setisloggedin, setlogemployee,setstatelogin } = useContext(MyContext)
@@ -18,11 +19,13 @@ const Navigation = () => {
        <Link to="/team"> Our Team </Link>
       <Link to="/signin"> login <BsPersonCircle/></Link> </>:""}
          
-{ isloggedin?  <> <Link to="/home"> Home</Link>  <Link to="/addservice"> Booking Service </Link>
+{ isloggedin?  <> <Link to="/home"> Home</Link> 
+ <Link to="/addservice"> Booking Service </Link>
 <Link to="/dashboard"> My Dashboard</Link> 
-<div className="dash">  <Link to="/"> My profile</Link> <div className="logout" onClick={() => {
+ {/* <Link to="/"> My profile</Link>  */}
+ <div className="logout" onClick={() => {
     navigate("/signin"); localStorage.removeItem("token"); localStorage.removeItem("statelogin"); setisloggedin(false);settoken("");setstatelogin("")
-  }}>log out </div></div> </>  :""
+  }}>log out<RiUserShared2Fill/></div> </>  :""
 }
 
   { logemployee?<div className="dash"><div> <Link to="/dashemployee"> My Dashboard</Link></div> <div className="logout" onClick={() => {

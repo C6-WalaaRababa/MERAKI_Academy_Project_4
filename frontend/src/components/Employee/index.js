@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../App";
 const LoginEmpolyee = () => {
@@ -8,11 +7,11 @@ const LoginEmpolyee = () => {
   const [password, setpassword] = useState("");
   const [BackMessage, setBackMessage] = useState("");
   const navigate = useNavigate();
-  const { settoken, logemployee, setlogemployee, setstatelogin } =
+  const { settoken, setlogemployee, setstatelogin } =
     useContext(MyContext);
   const signin =  () => {
     const workerInfo = { email, password };
-   // try {
+   
    axios.post(
         `http://localhost:5000/employee/login`,
         workerInfo
@@ -28,52 +27,39 @@ const LoginEmpolyee = () => {
        } )
     
     .catch ((error) =>{
-    //   setBackMessage(error.response.data.message)
+      setBackMessage(error.response.data.message)
     console.log(error)
     })
   };
-//   useEffect(() => {
-//     if (logemployee) {
-//       navigate("/dashemployee");
-//     }
-//   }, [logemployee]);
 
-// const godashboard=()=>
-// {
-//         if (logemployee) 
-//         {
-//             navigate("/dashemployee");
-
-//         }
  
 
   return (
     <>
-      <div>index</div>
-
-      {!logemployee ? (
-        <div>
-          <input
+        <div className="container">
+          <div className="login_form">
+            <h1> Login Empolyee Form</h1>
+          <input className="input"
             type="email"
             placeholder="Write your email"
             onChange={(e) => {
               setemail(e.target.value);
             }}
           ></input>
-          <input
+          <input className="input"
             type="password"
             placeholder="Write your password"
             onChange={(e) => {
               setpassword(e.target.value);
             }}
           ></input>
-          <button onClick={signin}> log in </button>
+          <button onClick={signin} className="button"> log in </button>
         </div>
-      ) : (
-        ""
-      )}
-      <div>{BackMessage}</div>
+      <div className="false">{BackMessage}</div>
+      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665168133/my%20image/Secure_login-pana_hmuxnw.png"></img></div>
+      </div>
     </>
+
   );
 };
 

@@ -2,10 +2,8 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
-import { MyContext } from "../../App";
 const Register = () => {
-  const role = "63317d166ef353aaf6c6ac59";
-  const {isloggedin}=useContext(MyContext)
+  const roleUser = "63317d166ef353aaf6c6ac59";
   const [firstName, setfirstname] = useState("");
   const [lastName, setlastname] = useState("");
   const [age, setage] = useState("");
@@ -13,79 +11,84 @@ const Register = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [BackeMessage, SetBackMessage] = useState("");
-  const [status, setstatus] = useState(false);
+  const [BackeMessage2, SetBackMessage2] = useState("");
+
   const addUser = async () => {
-    const userinfo = { firstName, lastName, age, city, email, password, role };
+    const userinfo = {firstName,lastName,age,city,email,password,role:roleUser};
+    console.log(userinfo)
     try {
       const result = await axios.post(`http://localhost:5000/users`, userinfo);
-      console.log(result);
-      if (result.data.sucsses) {
-        setstatus(true);
-        SetBackMessage(result.data.message);
-        const emailregistration = await axios.post(`http://localhost:5000/sendmail/register`, { email, firstName })
+      if (result.data. success) 
+      {
+        SetBackMessage("The user has been created successfully");
+
+        const emailregistration = await axios.post(`http://localhost:5000/sendmail/register`,{email,firstName})
         console.log(emailregistration.data)
-      } else {
+      }
+       else {
         throw Error;
       }
     } catch (error) {
-      setstatus(false);
-     {
-       SetBackMessage("Error happened while register, plz try again");
-      }
-    }
+
+      SetBackMessage2('Error happened while register, please try again');
+
   };
-  
+}
 
   return (
     <>
-      <div>Register form</div>
-      {
-      !isloggedin ?<div className="register-form">
-        <input
-          type="text"
+      <div className="container">
+     <div className="login_form">
+     <h1>Register form</h1>
+        <input className="input"
+          type="text" 
           placeholder="Write your First Name"
           onChange={(e) => {
             setfirstname(e.target.value);
           }}
         ></input>
-        <input
+        <input className="input"
           type="text"
           placeholder="Write your last Name"
           onChange={(e) => {
             setlastname(e.target.value);
           }}
         ></input>
-        <input
+        <input  className="input"
           type="text"
           placeholder="Write your age"
           onChange={(e) => {
             setage(e.target.value);
           }}
         ></input>
-        <input
+        <input  className="input"
           type="text"
           placeholder="Write your city"
           onChange={(e) => {
             setcity(e.target.value);
           }}
         ></input>
-        <input
+        <input  className="input"
           type="email"
           placeholder="Write your email"
           onChange={(e) => {
             setemail(e.target.value);
           }}
         ></input>
-        <input
+        <input  className="input"
           type="password"
           placeholder="Write your password"
           onChange={(e) => {
             setpassword(e.target.value);
           }}
         ></input>
-        <button onClick={addUser}> Register</button>
-        {status ? <div>{BackeMessage}</div> : <div>{BackeMessage}</div>}
-      </div> :<h4> plz log out before</h4>}
+        <button
+        onClick={addUser} className="button"> Register </button>
+        <div className="true">{BackeMessage}</div> 
+        <div className="false">{BackeMessage2}</div> 
+      </div> 
+      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665147342/my%20image/Mobile_login-pana_xjb2mg.png"></img></div>
+      </div>
     </>
   );
 };

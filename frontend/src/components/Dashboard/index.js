@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useContext, useState } from 'react'
+import {GrFormClose} from 'react-icons/gr'
 import { MyContext } from '../../App'
 import "./style.css";
 const Dashboard = () => {
@@ -86,23 +87,24 @@ setmyorders(newservice)
 
     return (
         <>
-            <div> My Orderes</div>
+            <div className='conatiner2'> 
+                <h1>My orders</h1>
             {myorders && myorders.map((element, i) => {
                 return (
                     <>
-                        <div>
-                            <h1>{element.title}</h1>
-                            <h2>{element.description}</h2>
-                            <p>section:{element.section.title}</p>
-                            <h2>{element.worker.firstName}</h2>
+                        <div className='service'>
+                            <p> Title of Service:{element.title}</p>
+                            <p>Descriotion:{element.description}</p>
+                            <p>Section: {element.section.title}</p>
+                            <p> Name of worker :{element.worker.firstName}</p>
                             <div className='worker'> <img src={element.worker.imgpath}></img>
                             </div>
-                            <p>{element.statuseofService}</p>
-                           <p>{element.Date ?<h3> The date is{element.Date}</h3> :<h3> no DATE has been set</h3>}</p>
+                            <p> Statuse of Service : {element.statuseofService}</p>
+                           <p>{element.Date ?<h4> The date is{element.Date}</h4> :<h4> The date has not yet been determined</h4>}</p>
                             <div> {!element.Comment && element.statuseofService==="approved"?
                                 <div>
 
-                                       <input type="text"
+                                       <input type="text" className='input'
                                         placeholder='give us your feed back about service' onChange={(e)=>{setcomment(e.target.value)}}></input>
 
                                     <button on onClick={() =>
@@ -114,7 +116,7 @@ setmyorders(newservice)
                                     element.Comment?<h2>your feed back is {element.Comment}</h2>:""
                                 }
                             </div>
-<button onClick={()=>{ cancelmyorder(element._id)}} > Cancel Order</button>
+<button onClick={()=>{ cancelmyorder(element._id)}} className="cancel" > Cancel Order < GrFormClose/></button>
 
                         </div>
                     </>
@@ -122,6 +124,7 @@ setmyorders(newservice)
             })
 
             }
+            </div>
         </>
 
     )

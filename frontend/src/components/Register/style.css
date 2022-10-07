@@ -1,15 +1,5 @@
-.register-form {
-    width: 55%;
-    margin: 0 auto;
-    gap: 20px;
-    padding: 44px;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #eeff;
-    height: 680px;
-  }
-  .register-form input {
-    padding: 20px;
-    width: 60%;
-    font-size: 22px;
-  }
+.true{
+  color: #11d828;  
+    font-size: calc(0.5rem + 0.8vw);
+  
+}

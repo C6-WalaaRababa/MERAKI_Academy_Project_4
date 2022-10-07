@@ -68,61 +68,66 @@ const AddService = () => {
       handel(selected)
     }
 
-  }, [selected])
+  }, [selected, idemployee])
 
 
   return (
     <>
-      <div>AddService</div>
-      {
-        isloggedin ? <div>
-          <input
+      <div className='container'>
+      <div className='login_form'>
+        <h1>Booking Service</h1>
+          <input className="input"
             type="text"
-            placeholder="Write Name of Service"
+            placeholder="write title"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           ></input>
-          <input
+          <input className="input"
             type="text"
-            placeholder="Write discription about what you need"
+            placeholder="write discription about the problem"
             onChange={(e) => {
               setDescriotion(e.target.value);
             }}
           ></input>
-          <form>
-
+          <div className="list">
+            <div>
             <label for="section"> choose section</label>
-            <select name="section" id="category" value={selected} onChange={(e) => { setselected(e.target.value) }}>
+            <select className='list_department' name="section" id="category" value={selected} onChange={(e) => { setselected(e.target.value) }}>
               <option value="">choose your section </option>
               <option value="63319b04898c0203cb0bce6d">carpentry</option>
               <option value="63319b1b898c0203cb0bce6f">electricity</option>
               <option value="63319b2c898c0203cb0bce71">plumbing</option>
               <option value="63319b3a898c0203cb0bce73">painting</option>
             </select>
-
-          </form>
-
-         <div className='employee-list'>
+            </div>
+            
+  <div className='employee-list'>
           {
             Employee && Employee.map((worker, i) => {
               return (
                 <>
+                
                   <div className='employee'>
                     <div><img src={worker.imgpath}></img></div>
                     <h4>{worker.firstName}</h4>
-<h5>{worker.rate}</h5>
-                    <div>  <button onClick={() => setidemployee(worker._id)}>choose</button> </div>
+{/* <h5>{worker.rate}</h5> */}
+                    <div>  <button  
+                    onClick={(e) => {e.target.style.backgroundColor = "green";
+              setidemployee(worker._id) }} className="choose">choose</button> </div>
                   </div></>)
             })
           }
          </div>
-          <button onClick={submitOrder}> submit order </button>
-          <div> {status1?<div>{BackMessage1}</div> :<div> {BackMessage1}</div> }</div>
+        
+       </div>
+          <button onClick={submitOrder} className="button"> submit order </button>
+          <div> {status1?<div className='true'>{BackMessage1}</div> :<div className='false'> {BackMessage1}</div> }</div>
 
           </div>
-          : ""}
-        
+          <div className='img_login'><img src='https://res.cloudinary.com/dzmmijyxh/image/upload/v1665176194/my%20image/Service_24_7-amico_xxwbuf.png'></img></div>
+  
+          </div> 
     </>
   )
 }

@@ -7,7 +7,6 @@ const Login = () => {
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const [BackeMessage, SetBackMessage] = useState("");
-  const [status, setstatus] = useState(false)
   const { isloggedin, setisloggedin, settoken, setstatelogin} = useContext(MyContext)
   const navigate = useNavigate();
   const signin = async () => {
@@ -31,8 +30,8 @@ const Login = () => {
     }
     catch (error) {
 
-      if (error.response && error.response.data) {
-        return SetBackMessage(error.response.data.message);
+      {
+       SetBackMessage(error.response.data.message);
       }
 
     }
@@ -48,9 +47,7 @@ const Login = () => {
   return (
     <>
       <div className="container">
-      <div className="img_login">
-            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665148242/my%20image/1636450033923-19197947_vlx8b9.png"></img>
-          </div>
+     
        <div className="login_form">
         <h1>Login form User</h1>
         <input className="input"
@@ -68,10 +65,11 @@ const Login = () => {
           }}
         ></input>
         <button  onClick={signin} className="button"> log in </button>
-        {status ? <div>{BackeMessage}</div> :
-          <div>{BackeMessage}</div>}
+          <div className="false">{BackeMessage}</div>
       </div> 
-     
+      <div className="img_login">
+            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665167493/my%20image/Login-bro_bb34bz.png"></img>
+          </div>
       </div>
     </>
   )

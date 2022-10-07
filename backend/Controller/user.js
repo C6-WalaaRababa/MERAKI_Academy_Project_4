@@ -30,7 +30,7 @@ const register = (req, res) => {
       }
       res.status(500).json({
         success: false,
-        message: "Account not Created",
+        message: "Erorr while registertion",
         error: error.message,
       });
     });

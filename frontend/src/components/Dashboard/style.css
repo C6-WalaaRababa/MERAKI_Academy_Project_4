@@ -1,5 +1,15 @@
 .worker img{
-    width:300px;
-  border-radius: 55%;
-  height: 300px;
+  width:14vw;
+  height: 30vh;
+}
+
+
+h2{
+  font-family: "Roboto", sans-serif;
+}
+.cancel
+{
+  background-color: rgb(169, 8, 8);
+  border: rgb(169, 8, 8);
+  color: #fff;
 }
