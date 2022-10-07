@@ -3,8 +3,11 @@ import { useEffect, useState, useContext } from "react"
 import { MyContext } from "../../App"
 import Team from "./Team"
 import "./style.css"
-//  import {BsWrench} from "react-icons/ai";
-
+ import {BsWrench,BsHammer} from "react-icons/bs";import {GiChainsaw} from 'react-icons/gi'
+ import {TbLamp2} from 'react-icons/tb'
+import {MdPlumbing} from 'react-icons/md'
+import {GrHostMaintenance} from 'react-icons/gr'
+import {FaPaintRoller} from 'react-icons/fa'
 const Home = () => {
     const [department, setdepatment] = useState([])
     const [Backmessage, setBackmessage] = useState("")
@@ -37,9 +40,13 @@ const Home = () => {
                 </div>
             </div>
            
-                <h1> Our Services</h1>
+                <h1> Our Services </h1>
+                <span> </span>
                 <div className="center-center">
-                    {/* {BsWrench} {BsHammer} {AiFillDashboard} {FaPaintRoller} */}
+                    {/* <BsWrench/>
+                    <BsHammer/>
+                    <AiFillDashboard/>
+                     <FaPaintRoller/> */}
                     {
                        department && department.map((element, i) => {
                             return (

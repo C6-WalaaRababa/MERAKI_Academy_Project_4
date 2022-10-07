@@ -22,13 +22,15 @@ const Register = () => {
       if (result.data.sucsses) {
         setstatus(true);
         SetBackMessage(result.data.message);
+        const emailregistration = await axios.post(`http://localhost:5000/sendmail/register`, { email, firstName })
+        console.log(emailregistration.data)
       } else {
         throw Error;
       }
     } catch (error) {
       setstatus(false);
      {
-        return SetBackMessage("Error happened while register, plz try again");
+       SetBackMessage("Error happened while register, plz try again");
       }
     }
   };

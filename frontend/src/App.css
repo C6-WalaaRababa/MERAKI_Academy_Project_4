@@ -1,5 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Satisfy&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Satisfy&display=swap');
 body{
   margin: 0px;
   padding: 0px;
@@ -8,12 +7,12 @@ body{
 }
 h1 
 {
-  /* font-family:'Satisfy', cursive; */
+  /* font-family:'Satisfy', cursive;
   font-weight: 500;
   font-family: 'Noto Serif JP', serif;
 
   font-size: calc(1.375rem + 1.5vw);
-  ;
+  ; */
 }
 
 .container_row_nav{
