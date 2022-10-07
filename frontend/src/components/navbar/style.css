@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Roboto:wght@500&family=Satisfy&display=swap');
 .header {
   height: 6vh;
   background-color:#080708;
+  opacity:0.9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,6 @@
   padding-bottom: 10px;
   background-color: #E60B63;
   column-gap: 0.1vw;
-  box-shadow: 0 10px #E60B63;
 }
 .header2 img{
 height:13vh;

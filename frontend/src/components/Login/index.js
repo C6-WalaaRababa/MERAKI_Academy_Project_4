@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { MyContext } from "../../App";
+import "./style.css"
 import axios from "axios";
 const Login = () => {
   const [email, setemail] = useState("")
@@ -47,26 +47,31 @@ const Login = () => {
 
   return (
     <>
-      <div> login form  as user </div>
-      <div>
-        <input
+      <div className="container">
+      <div className="img_login">
+            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665148242/my%20image/1636450033923-19197947_vlx8b9.png"></img>
+          </div>
+       <div className="login_form">
+        <h1>Login form User</h1>
+        <input className="input"
           type="email"
-          placeholder="Write your email"
+          placeholder="write your email"
           onChange={(e) => {
             setemail(e.target.value);
           }}
         ></input>
-        <input
+        <input className="input"
           type="password"
-          placeholder="Write your password"
+          placeholder="write your password"
           onChange={(e) => {
             setpassword(e.target.value);
           }}
         ></input>
-        <button onClick={signin}> log in </button>
+        <button  onClick={signin} className="button"> log in </button>
         {status ? <div>{BackeMessage}</div> :
           <div>{BackeMessage}</div>}
-
+      </div> 
+     
       </div>
     </>
   )

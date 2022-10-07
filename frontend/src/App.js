@@ -10,7 +10,6 @@ import AddService from "./components/Add Service";
 import Dashboard from "./components/Dashboard";
 import LoginEmpolyee from "./components/Employee";
 import AllOrder from "./components/Employee/AllOrder";
-import PendingOrder from "./components/Employee/PendingOrder";
 import Team from "./components/Home/Team";
 import Mainlogin from "./components/Mainlogin";
 import Contact from "./components/Employee/Contact";
