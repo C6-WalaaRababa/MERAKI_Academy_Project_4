@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
+import Footerpart from "../Foater";
 const Register = () => {
   const roleUser = "63317d166ef353aaf6c6ac59";
   const [firstName, setfirstname] = useState("");
@@ -37,6 +38,7 @@ const Register = () => {
 
   return (
     <>
+    <div>
       <div className="container">
      <div className="login_form">
      <h1>Register form</h1>
@@ -86,9 +88,12 @@ const Register = () => {
         onClick={addUser} className="button"> Register </button>
         <div className="true">{BackeMessage}</div> 
         <div className="false">{BackeMessage2}</div> 
+        <Footerpart/>
       </div> 
-      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665147342/my%20image/Mobile_login-pana_xjb2mg.png"></img></div>
+      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665234945/Mobile_login-pana_1_w6ifwh.png"></img></div>
       </div>
+     
+      </div> 
     </>
   );
 };

@@ -3,8 +3,8 @@
   url("https://res.cloudinary.com/dzmmijyxh/image/upload/v1664995166/my%20image/plumber_mhfn9e.jpg"); 
 background-size: cover;
 background-repeat: no-repeat;
-background-position: center;
-height: 600px;  
+background-position: center center;
+height:105vh;  
 }
 .part1{
     width:55%;
@@ -15,14 +15,14 @@ height: 600px;
     text-align: center;
 
 }
-.part1 h1 , .part1 h3{
+.part1 h1,.part1 h3  {
+  font-weight: 500;
   font-family: 'Satisfy', cursive;
-font-size: calc(1rem +1.4vw);
+font-size: calc(1.75rem +1.4vw);
 text-align: center;
 }
 .center-center{
-border: 4px solid #000;
-height: 400px;
+height: 30vh;
 text-transform: capitalize;
 display: grid;
 grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -32,9 +32,14 @@ align-items: center;
 
 }
 .item{
-    background-color: #bdbdbb;
+    /* background-color: #bdbdbb;
     height: 80px;
-    justify-content: center;
+    justify-content: center; */
+    font-family:'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: calc(.8rem + 0.35vw);
+    text-align: justify;
+    text-transform: capitalize;
     
 }
 /* .employee img{
@@ -83,3 +88,20 @@ color: #E60B63;;
   width:30vw;
   align-items: center;
 }
+.img_manger img{
+  width: 20vw;
+  display: block;
+  height: 50vh;
+  margin-top: 10vh;
+  border-radius: 5%;
+}
+.login_form h5{
+  font-family:'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: calc(1rem + 0.35vw);
+  text-align: justify;
+}
+.show{
+  align-self: flex-end;
+}
+

@@ -15,7 +15,7 @@ const Navigation = () => {
         <div className="linkhome">
         {!token?<>
           <Link to="/home"> Home</Link> 
-         <Link to="/"> Services </Link> 
+         <Link to="/about"> About Us </Link> 
        <Link to="/team"> Our Team </Link>
       <Link to="/signin"> login <BsPersonCircle/></Link> </>:""}
          

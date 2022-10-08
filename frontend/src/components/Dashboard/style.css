@@ -7,7 +7,7 @@
 
 .My_Dashboard p ,.My_Dashboard h4 {
   font-weight: 500;
-  font-size: calc(1rem + 0.3w);
+  font-size: calc(0.5rem + 0.4vw);
   font-family: "Roboto", sans-serif;
 }
 
@@ -32,7 +32,7 @@ h2{
     padding-bottom: 1vh;
     border-radius: 4%;
   color: #fff;
-  font-size: calc(0.5rem + 0.8vw);
+  font-size: calc(0.5rem + 0.4vw);
   background-color:#FF1600;
  border: #FF1600;
 }

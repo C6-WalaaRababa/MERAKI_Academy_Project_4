@@ -19,15 +19,16 @@
   font-family: "Roboto", sans-serif;
 }
 .input {
-  padding: 2vh;
+  padding: 1.9vh;
   margin-bottom: 3vh;
   width: 30vw;
   border-radius: 2%;
   border: 3px solid #ccc;
   font-size: calc(0.5rem + 0.8vw);
 }
-.input:focus {
+.input:focus{
   border: 3px solid #001f66;
+
 }
 
 .img_login img {
@@ -38,12 +39,13 @@
 .button {
     width:16vw;
     margin-top: 3vh;
-    padding: 3vh;
+    padding: 2vh;
     border-radius: 4%;
 border: #e60b63;
   background-color:#e60b63;
   color: #fff;
   font-size: calc(0.5rem + 0.8vw);
+  margin-bottom: 3vh;
 }
 .button:hover{
     border: #001f66;
@@ -55,4 +57,7 @@ border: #e60b63;
 }
 .false
 {color: #F51602;  font-size: calc(0.5rem + 0.8vw);
+}
+.button{
+  align-items: end;
 }

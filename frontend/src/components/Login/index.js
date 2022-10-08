@@ -19,7 +19,7 @@ const Login = () => {
         localStorage.setItem("token", result.data.token)
         settoken(result.data.token);
         setisloggedin(true)
-        SetBackMessage(result.data.message);
+        // SetBackMessage(result.data.message);
         localStorage.setItem("statelogin",result.data.state)
         setstatelogin(result.data.state)
 
@@ -68,7 +68,7 @@ const Login = () => {
           <div className="false">{BackeMessage}</div>
       </div> 
       <div className="img_login">
-            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665167493/my%20image/Login-bro_bb34bz.png"></img>
+            <img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665234923/Login-bro_1_kyczxw.png"></img>
           </div>
       </div>
     </>

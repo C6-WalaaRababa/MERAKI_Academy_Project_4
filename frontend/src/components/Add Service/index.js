@@ -108,13 +108,13 @@ const AddService = () => {
               return (
                 <>
                 
-                  <div className='employee'>
+                  <div className='img_list'>
                     <div><img src={worker.imgpath}></img></div>
                     <h4>{worker.firstName}</h4>
 {/* <h5>{worker.rate}</h5> */}
                     <div>  <button  
-                    onClick={(e) => {e.target.style.backgroundColor = "green";
-              setidemployee(worker._id) }} className="choose">choose</button> </div>
+                    onClick={(e) => {e.target.style.backgroundColor="green";
+                     setidemployee(worker._id)}} className="choose">choose</button> </div>
                   </div></>)
             })
           }
@@ -125,7 +125,7 @@ const AddService = () => {
           <div> {status1?<div className='true'>{BackMessage1}</div> :<div className='false'> {BackMessage1}</div> }</div>
 
           </div>
-          <div className='img_login'><img src='https://res.cloudinary.com/dzmmijyxh/image/upload/v1665176194/my%20image/Service_24_7-amico_xxwbuf.png'></img></div>
+          <div className='img_login'><img src='https://res.cloudinary.com/dzmmijyxh/image/upload/v1665234941/Service_24_7-amico_1_d6cnsn.png'></img></div>
   
           </div> 
     </>

@@ -13,6 +13,8 @@ import AllOrder from "./components/Employee/AllOrder";
 import Team from "./components/Home/Team";
 import Mainlogin from "./components/Mainlogin";
 import Contact from "./components/Employee/Contact";
+import About from "./Aboutus/About";
+import Footerpart from "./components/Foater";
 export const MyContext = createContext();
 function App() {
   const navigate = useNavigate()
@@ -53,6 +55,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About/>}/>
             <Route path="/team" element={<Team />} />
             <Route path="/signin" element={<Mainlogin />} />
             <Route path="/login" element={<Login />} />
@@ -70,6 +73,7 @@ function App() {
               </>
                 : ""}
             </>
+          
             <>
               {
                 logemployee ? <>
@@ -82,7 +86,6 @@ function App() {
 
 
           </Routes>
-
         </div>
 
 

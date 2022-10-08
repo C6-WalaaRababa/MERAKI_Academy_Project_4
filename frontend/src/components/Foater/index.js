@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Foaterpart = () => {
+const Footerpart = () => {
   return (
-    <div>Foaterpart</div>
+    <div className='footer'>
+<h6>All Right Reseved</h6>
+    </div>
   )
 }
 
-export default Foaterpart
+export default Footerpart

@@ -41,14 +41,14 @@ const LoginEmpolyee = () => {
             <h1> Login Empolyee Form</h1>
           <input className="input"
             type="email"
-            placeholder="Write your email"
+            placeholder="write your email"
             onChange={(e) => {
               setemail(e.target.value);
             }}
           ></input>
           <input className="input"
             type="password"
-            placeholder="Write your password"
+            placeholder="write your password"
             onChange={(e) => {
               setpassword(e.target.value);
             }}
@@ -56,7 +56,7 @@ const LoginEmpolyee = () => {
           <button onClick={signin} className="button"> log in </button>
         </div>
       <div className="false">{BackMessage}</div>
-      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665168133/my%20image/Secure_login-pana_hmuxnw.png"></img></div>
+      <div className="img_login"><img src="https://res.cloudinary.com/dzmmijyxh/image/upload/v1665234932/Secure_login-pana_1_tgtg3g.png"></img></div>
       </div>
     </>
 

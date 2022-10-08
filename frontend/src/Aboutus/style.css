@@ -1,0 +1,12 @@
+.icon svg
+{
+    width:24vw;
+    font-weight: 500;
+    font-size: calc(2rem + 0.8vw);
+   color:  #E60B63;
+}
+.section{
+    margin-top: 9vh;
+    padding-top: 8vh;
+    
+}
