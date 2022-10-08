@@ -48,7 +48,10 @@ border: #e60b63;
 .button:hover{
     border: #001f66;
     background-color: #001f66;
+  
+
     color:#fff;
+    
 }
 .false
 {color: #F51602;  font-size: calc(0.5rem + 0.8vw);

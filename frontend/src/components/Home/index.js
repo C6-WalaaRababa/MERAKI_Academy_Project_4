@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
             </div>
            
-                <h1> Our Services </h1>
+                <h2> Our Services </h2>
                 <span> </span>
                 <div className="center-center">
                     {/* <BsWrench/>

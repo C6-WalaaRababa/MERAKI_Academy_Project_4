@@ -87,24 +87,25 @@ setmyorders(newservice)
 
     return (
         <>
-            <div className='conatiner2'> 
+            
                 <h1>My orders</h1>
+                <div className="My_Dashboard"> 
             {myorders && myorders.map((element, i) => {
                 return (
                     <>
                         <div className='service'>
                             <p> Title of Service:{element.title}</p>
-                            <p>Descriotion:{element.description}</p>
+                            <p> Description:{element.description}</p>
                             <p>Section: {element.section.title}</p>
                             <p> Name of worker :{element.worker.firstName}</p>
-                            <div className='worker'> <img src={element.worker.imgpath}></img>
+                            <div className='worker'><p> Image worker </p> <img src={element.worker.imgpath}></img>
                             </div>
                             <p> Statuse of Service : {element.statuseofService}</p>
                            <p>{element.Date ?<h4> The date is{element.Date}</h4> :<h4> The date has not yet been determined</h4>}</p>
-                            <div> {!element.Comment && element.statuseofService==="approved"?
+                            <div className='feedback'> {!element.Comment && element.statuseofService==="approved"?
                                 <div>
 
-                                       <input type="text" className='input'
+                                       <input type="text"
                                         placeholder='give us your feed back about service' onChange={(e)=>{setcomment(e.target.value)}}></input>
 
                                     <button on onClick={() =>
@@ -113,10 +114,10 @@ setmyorders(newservice)
 
                                 }
                                 {
-                                    element.Comment?<h2>your feed back is {element.Comment}</h2>:""
+                                    element.Comment?<p>your feedback was: {element.Comment}</p>:""
                                 }
                             </div>
-<button onClick={()=>{ cancelmyorder(element._id)}} className="cancel" > Cancel Order < GrFormClose/></button>
+<button onClick={()=>{ cancelmyorder(element._id)}} className="cancel" > delete Order</button>
 
                         </div>
                     </>

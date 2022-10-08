@@ -1,3 +1,21 @@
+.My_Dashboard{
+  display: flex;
+  justify-content:space-around;
+  flex-wrap: wrap;
+ row-gap: 2vh;
+}
+
+.My_Dashboard p ,.My_Dashboard h4 {
+  font-weight: 500;
+  font-size: calc(1rem + 0.3w);
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+
+
+
 .worker img{
   width:14vw;
   height: 30vh;
@@ -9,7 +27,32 @@ h2{
 }
 .cancel
 {
-  background-color: rgb(169, 8, 8);
-  border: rgb(169, 8, 8);
+  width:8vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 4%;
   color: #fff;
+  font-size: calc(0.5rem + 0.8vw);
+  background-color:#FF1600;
+ border: #FF1600;
+}
+.feedback input 
+{
+  padding: 2vh;
+  margin-bottom: 3vh;
+  width: 20vw;
+  margin-right: 1vw;
+  border-radius: 2%;
+  border: 3px solid #ccc;
+  font-size: calc(0.5rem + 0.5vw);
+}
+.feedback button{
+  width:8vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 4%;
+  color: #fff;
+  font-size: calc(0.5rem + 0.8vw);
+  background-color:#0dd732;
+ border: #FF1600;
 }

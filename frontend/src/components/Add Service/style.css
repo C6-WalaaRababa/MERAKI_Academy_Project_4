@@ -11,7 +11,7 @@
 
 
 .employee img{
-    width:14vw;
+    width:19vw;
     height: 30vh;
 }
     .list_department
@@ -37,7 +37,7 @@ align-items: center;
     border: #001f66;
     background-color: #001f66;
     color:#fff;
-    width: 5vw;
+    width: 19vw;
     padding-top:1vh;
 }
 

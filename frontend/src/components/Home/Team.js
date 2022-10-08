@@ -48,13 +48,15 @@ const Team = () => {
   return (
     <>
 
-      <div>
+      
+        <div className="search_part">
         <h1> Our Team</h1>
         <div className="search">
         <input type="text" width="40" placeholder="search employee" onChange={(e) => { setsearch(e.target.value) }}></input>
-        <button onClick={searchemployee}><FaSearch /></button>
+        <button onClick={searchemployee} ><FaSearch /></button>
         </div>
-      <div className='employee-list'>
+        </div>
+      <div className="My_Dashboard">
         {employee
           ? employee.map((worker, i) => {
             return (
@@ -71,7 +73,7 @@ const Team = () => {
           })
           : ""}
       </div>
-      </div>
+     
     </>
   );
 };

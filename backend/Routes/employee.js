@@ -7,6 +7,6 @@ employeeRouter.post("/",authentication,authorization("ADD_EMPOLYEE"),addEmployee
 employeeRouter.post("/login",loginEmployee)
 employeeRouter.get("/",authentication,getallEmployee)
 employeeRouter.get("/search_1",authentication,getEmployeeforSection)
-employeeRouter.get("/search_2",authentication,findEmployee)
+employeeRouter.get("/search_2",findEmployee)
 employeeRouter.get("/ourteam",getGenralInfoEmpolyee)
 module.exports=employeeRouter
